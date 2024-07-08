@@ -1,0 +1,31 @@
+.card {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  margin: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+  color: white;
+}
+
+.card-content {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.content-place {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.content-title-1,
+.content-title-2 {
+  font-size: 1.1em;
+}
+
+.desc {
+  font-size: 0.9em;
+}

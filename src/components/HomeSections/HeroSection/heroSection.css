@@ -1,0 +1,29 @@
+.hero-section {
+  background-image: url('http://andywalt.com/static/media/whitekeys.5e08a64e.jpg'); /* Add your image path */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.cta-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: white;
+  background-color: #007BFF;
+  border: none;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+}
