@@ -1,17 +1,19 @@
 import React from 'react';
+import Navbar from "../components/Navbar/navBar.js";
 import HeroSection from '../components/HomeSections/HeroSection/heroSection';
 import FeatureSection from '../components/HomeSections/FeatureSection/featureSection';
-import ClientLogos from '../components/HomeSections/ClientLogosSection/clientLogos';
+import ContactSection from "../components/HomeSections/ContactSection/ContactSection.js";
 import Footer from '../components/HomeSections/FooterSection/footer';
 import CardCarousel from '../components/CardCarousel/CardCarousel';
 
 function HomePage() {
   return (
     <div className="HomePage">
+      <Navbar />
       <HeroSection />
-      <CardCarousel />
       <FeatureSection />
-      <ClientLogos />
+      <CardCarousel />
+      <ContactSection />
       <Footer />
     </div>
   );

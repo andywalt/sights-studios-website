@@ -1,0 +1,83 @@
+.contact-section {
+  background-color: #f0f0f0;
+  padding: 50px;
+  text-align: center;
+  font-family: 'Inter';
+}
+
+.contact-heading {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.contact-subheading {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-form input {
+  width: 300px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 10px 0;
+}
+
+.checkbox-group label {
+  font-size: 1rem;
+  margin: 5px 0;
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-area {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-area:hover {
+  background: linear-gradient(45deg, #145214, #1D1B26);
+  border-radius: 5px;
+  padding: 10px;
+  color: #FAF9F6;
+}
+
+.star-icon {
+  font-size: 2rem;
+  margin-right: 10px;
+  cursor: pointer;
+  color: #ccc;
+}
+
+.star-icon.checked {
+  color: #FBBF24; /* Golden color for checked state */
+}
+
+.cta-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: white;
+  background-color: #007BFF;
+  border: none;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+}

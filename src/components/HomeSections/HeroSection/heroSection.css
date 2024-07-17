@@ -1,29 +1,115 @@
 .hero-section {
-  background-image: url('http://andywalt.com/static/media/whitekeys.5e08a64e.jpg'); /* Add your image path */
-  background-size: cover;
+  background-image: url("../../../../public/photos/starrysky.webp") ;
+  background-size: auto;
   background-position: center;
   height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: white;
-  text-align: center;
+  justify-content: space-between; /* Changed to space-between to separate content and image */
+  color: #FAF9F6;
+  text-align: left; /* Changed to left align text */
+  font-family: "Inter";
+  padding: 0 5%;
 }
 
 .hero-content {
   max-width: 600px;
+  width: 80%; /* Adjust width for mobile */
+  padding: 20px; /* Add padding for better spacing */
+}
+
+.hero-name-highlight {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  color: #FAF9F6;
+  font-size: 4vw;
+  text-decoration: none;
+  margin: 0;
+  text-shadow:1px 1px 2px #1D1B26;
+  z-index: 0;
+}
+
+.hero-name-highlight::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 0.2em; /* Adjust height as needed */
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(45deg, #145214, #1D1B26);
+  z-index: -1;
+  transition: height 0.3s ease-in-out;
+}
+
+.hero-name-highlight:hover::before {
+  height: 100%;
+  border-radius: 5px;
+}
+
+.hero-caption {
+  font-size: 1.5vw; /* Adjust size relative to screen width */
+  text-shadow: 1px 1px 2px #1D1B26;
 }
 
 .cta-button {
   margin-top: 20px;
   padding: 10px 20px;
   font-size: 1.2rem;
-  color: white;
-  background-color: #007BFF;
+  color: #FAF9F6;
+  background: linear-gradient(45deg, #145214, #1D1B26);
+  background-size: 200% 200%;
   border: none;
   cursor: pointer;
+  border-radius: 25px;
+  animation: gradientAnimation 4s ease infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .cta-button:hover {
-  background-color: #0056b3;
+  background-position: 200% 200%;
+  transform: scale(1.1);
+  animation: hoverGradientAnimation 1s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .hero-section {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10vh;
+  }
+
+  .hero-content {
+    width: 80%;
+    padding: 20px;
+  }
+
+  .hero-statement {
+    font-size: 3rem;
+  }
+
+  .hero-caption {
+    font-size: 1.5rem;
+  }
+
+  .cta-button {
+    font-size: 1rem;
+  }
 }

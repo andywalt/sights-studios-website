@@ -8,8 +8,6 @@ const CardCarousel = () => {
   const [activeIndex, setActiveIndex] = useState(0); // Track the active card index
   const [cardsOrder, setCardsOrder] = useState(cardData); // Order of cards
   const [autoPlay, setAutoPlay] = useState(true); // Control autoplay
-  const [timeline, setTimeline] = useState(null); // Store the GSAP timeline
-
   // Handle autoplay logic
   useEffect(() => {
     let interval;
@@ -24,7 +22,7 @@ const CardCarousel = () => {
           setActiveIndex(0); // Reset active index
           return newOrder;
         });
-      }, 4000); // Change card every 4 seconds
+      }, 5000); // Change card every 4 seconds
     }
 
     return () => {
@@ -79,13 +77,12 @@ const CardCarousel = () => {
     tl.to(cards, {
       x: `-=${cards.length * 200}`,
       ease: 'none',
-      duration: cards.length * 8,
+      duration: cards.length * 4,
       modifiers: {
         x: gsap.utils.unitize(x => parseFloat(x) % (cards.length * 200)),
       },
     });
 
-    setTimeline(tl);
     return () => tl.kill();
   }, [cardsOrder, autoPlay]);
 
@@ -116,7 +113,7 @@ const CardCarousel = () => {
               >
                 <Card
                   image={card.image}
-                  place={card.place}
+                  client={card.client}
                   title={card.title}
                   title2={card.title2}
                 />
@@ -127,7 +124,7 @@ const CardCarousel = () => {
         {/* Active card information */}
         <div className="active-card-info">
           <h2>{cardsOrder[0].title} {cardsOrder[0].title2}</h2>
-          <p>{cardsOrder[0].place}</p>
+          <h1>{cardsOrder[0].client}</h1>
           <p>{cardsOrder[0].description}</p>
         </div>
         {/* Arrows for navigation */}
