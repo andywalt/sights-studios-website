@@ -15,7 +15,7 @@ export const cardData = [
 },
 {
     client:'Big Fan Pros',
-    title:'PROCCESS',
+    title:'PROCESS',
     title2:'PRODUCT',
     description:'Developed a comprehensive website for a first time online presence. Built the site, sourced appropriate images, and ensured all elements aligned with the client\'s business objectives to effectively enhance their digital footprint.',
     image:'/photos/bigfanpros.png'

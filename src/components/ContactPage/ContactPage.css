@@ -1,0 +1,123 @@
+/* TalkPage.css */
+
+.talk-page {
+  background-color: var(--bg);
+  color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  background-image: url('/public/photos/glasses.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.talk-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 150px 0px 20px 0px;
+  height: 80vh;
+}
+
+.talk-box {
+  background-color: rgba(17, 17, 17, 0.8); 
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.talk-content h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.talk-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  font-family: "Judson";
+}
+
+.talk-form h2 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  align-items: center;
+}
+
+.form-row span {
+  font-size: 1.2rem;
+}
+
+.form-row label {
+  position: relative;
+  flex: 1;
+  margin: 0 5px;
+}
+
+.form-row input,
+.form-row select {
+  width: 100%;
+  padding: 10px 5px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}
+
+
+.form-row input::placeholder, .form-row select {
+  color: #dddddd;
+  font-family: 'Judson', sans-serif;
+  font-size: 0.9rem;
+}
+
+.bottom-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid #fff;
+}
+
+.spacer {
+  margin: 10px;
+}
+
+@media (max-width: 768px) {
+  .talk-content {
+    display: flex;
+    justify-content: center;
+  }
+  .talk-box {
+    width: 90%;
+    height: 60%;
+  }
+  .form-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #name-line, #role-line, #company-line, #email-line {
+    flex-direction: row;
+  }
+
+  .form-row input,
+  .form-row select {
+    width: calc(100% - 20px); /* to account for padding */
+  }
+
+  .form-row span {
+    padding-top: 5px;
+  }
+
+  #talk-cta-button {
+    display: block;
+    width: 80%;
+    margin: 20px auto 0 auto;
+  }
+}

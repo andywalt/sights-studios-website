@@ -2,11 +2,11 @@
   background-image: url("../../../../public/photos/starrysky.webp") ;
   background-size: auto;
   background-position: center;
-  height: 100vh;
+  height: 80vh;
   display: flex;
   align-items: center;
   justify-content: space-between; /* Changed to space-between to separate content and image */
-  color: #FAF9F6;
+  color: var(--secondary-amber);
   text-align: left; /* Changed to left align text */
   font-family: "Inter";
   padding: 0 5%;
@@ -23,11 +23,16 @@
   display: inline-block;
   cursor: pointer;
   color: #FAF9F6;
-  font-size: 4vw;
+  font-size: 4rem;
   text-decoration: none;
   margin: 0;
   text-shadow:1px 1px 2px #1D1B26;
   z-index: 0;
+  text-transform: uppercase;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  font-weight: 900;
+
 }
 
 .hero-name-highlight::before {
@@ -49,7 +54,9 @@
 
 .hero-caption {
   font-size: 1.5vw; /* Adjust size relative to screen width */
+  color: var(--text-color);
   text-shadow: 1px 1px 2px #1D1B26;
+  transition: color 1s ease; /* Ensures smooth transition */
 }
 
 .cta-button {
@@ -99,10 +106,11 @@
   .hero-content {
     width: 80%;
     padding: 20px;
+    margin-top: 30px;
   }
 
   .hero-statement {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 
   .hero-caption {

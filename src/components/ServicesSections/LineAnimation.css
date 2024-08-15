@@ -1,0 +1,57 @@
+.knot-container {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--text-color);
+  font-family: 'Inter', sans-serif;
+  color: var(--bg);
+  background-color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+.knot-container h3 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+svg {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.upper-title,
+.lower-title {
+  width: 90%;
+  text-align: center;
+  position: absolute;
+}
+
+.upper-title {
+  margin-top: 1em;
+  height: 4em;
+  top: 10%;
+}
+
+.lower-title {
+  bottom: 48%;
+}
+
+.upper-title h3,
+.lower-title h3 {
+  font-size: 1.5em;
+  margin: 0.5em 0;
+  position: absolute;
+  width: 100%;
+  text-transform: uppercase;
+}
+
+.main-path {
+  stroke: var(--primary-green);
+}

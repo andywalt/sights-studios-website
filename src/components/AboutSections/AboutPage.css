@@ -1,0 +1,270 @@
+/* AboutPage.css */
+
+/* General Styles */
+.about-page {
+  font-family: 'Inter', sans-serif;
+  color: var(--bg);
+  background-color: var(--text-color);
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+
+/* About Hero Section */
+
+.about-hero-section {
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  padding: 100px 50px 50px 50px;
+}
+
+.about-hero-content {
+  max-width: 50%;
+  margin-left: 50px;
+  padding-left: 50px;
+}
+
+.about-hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.about-hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.about-hero-image {
+  position: relative;
+  max-width: 50%;
+}
+
+.about-hero-image img {
+  position: relative;
+  width: 50%;
+  height: auto;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.green-overlay {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-green);
+  border-radius: 50%;
+  z-index: 0;
+  transform: rotate(-15deg);
+}
+
+/* About Hero Section Mobile Styling  */
+
+@media (max-width: 768px) {
+  .about-hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 50px 20px 20px 20px;
+    height: 50vh;
+  }
+
+  .about-hero-content {
+    max-width: 100%;
+    margin-bottom: 20px;
+    padding: 10px;
+    margin: 20px 10px 20px 10px;
+  }
+
+  .about-hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .about-hero-image {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .about-hero-image img {
+    height: 100%;
+    margin-top: 20px;
+  }
+
+  .hero-image-overlay {
+    width: 70%;
+    height: 70%;
+  }
+}
+
+/* Values Section */
+.values-section {
+  padding: 25px 50px 25px 50px;
+  text-align: center;
+}
+
+.values-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.values-section p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: var(--text-color-secondary);
+}
+
+.values {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.value {
+  flex: 1 1 30%;
+  max-width: 30%;
+  margin: 10px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.value-icon {
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.value h3 {
+  margin-top: 10px;
+  font-size: 1.5rem;
+}
+
+.value p {
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.cta-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: white;
+  background-color: #007BFF;
+  border: none;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  background-color: #0056b3;
+}
+
+/* About Me Section */
+.about-me-section {
+  padding: 50px;
+  text-align: center;
+}
+
+.about-me-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.about-me-image{
+  margin: 30px;
+}
+
+.about-me-image img {
+  width: 350px;
+  height: auto;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.about-me-text {
+  max-width: 700px;
+  margin: 10px;
+}
+
+.about-me-text h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.about-me-text p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+  .about-me-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-me-image {
+    margin-bottom: 20px;
+  }
+
+  .about-me-image img {
+    width: 150px;
+  }
+
+  .about-me-text {
+    max-width: 100%;
+    text-align: center;
+  }
+}
+
+/* Partners Section */
+.partners-section {
+  padding: 50px;
+  text-align: center;
+}
+
+.partners {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.partner {
+  flex: 1 1 30%;
+  max-width: 30%;
+  margin: 10px;
+}
+
+.partner img {
+  width: 100%;
+  height: auto;
+}
+
+.partner h3 {
+  font-size: 1.5rem;
+  margin: 10px 0;
+}
+
+/* CTA Button */
+.cta-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: #FAF9F6;
+  background-color: #145214;
+  border: none;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  background-color: #0e3d1a;
+}

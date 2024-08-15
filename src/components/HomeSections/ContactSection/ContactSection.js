@@ -46,41 +46,45 @@ const ContactSection = () => {
   return (
     <div className="contact-section">
       <h2 className="contact-heading">Get in Touch</h2>
-      <p className="contact-subheading">We'd love to hear from you. Fill out the form below and we'll get back to you as soon as possible.</p>
-      <form className="contact-form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="firstName"
-          placeholder="First Name"
-          value={formData.firstName}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="text"
-          name="lastName"
-          placeholder="Last Name"
-          value={formData.lastName}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="tel"
-          name="phone"
-          placeholder="Phone Number"
-          value={formData.phone}
-          onChange={handleChange}
-          required
-        />
+      <p className="contact-subheading">We'd love to hear from you (but don't want to be annoying).</p>
+      <form className="contact-form-container" onSubmit={handleSubmit}>
+        <div className="contact-form">
+          <h3 className="form-section-title">Fill out your work details.</h3>
+          <input
+            type="text"
+            name="firstName"
+            placeholder="First Name"
+            value={formData.firstName}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="text"
+            name="lastName"
+            placeholder="Last Name"
+            value={formData.lastName}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Phone Number"
+            value={formData.phone}
+            onChange={handleChange}
+            required
+          />
+        </div>
         <div className="checkbox-group">
+          <h3 className="form-section-title">How can we help?</h3>
           {['Processes', 'Product', 'People', 'Other'].map((area) => (
             <label key={area} className='checkbox-area' onClick={() => handleStarClick(area)}>
               <FontAwesomeIcon
@@ -91,8 +95,8 @@ const ContactSection = () => {
             </label>
           ))}
         </div>
-        <button type="submit" className="cta-button">Submit</button>
       </form>
+      <button type="submit" className="cta-button">Submit</button>
     </div>
   );
 };

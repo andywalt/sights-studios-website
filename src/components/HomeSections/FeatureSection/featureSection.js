@@ -5,15 +5,20 @@ import './featureSection.css';
 const features = [
   {
     title: 'Processes',
-    description: 'We evaluate your current systems, workflows, habits, and methods and then map them before developing efficiencies and new products around them.'
+    description: 'We evaluate your current systems, workflows, habits, and methods and then map them before developing efficiencies and new products around them.',
+    backgroundImage: `${process.env.PUBLIC_URL}/photos/processes-diagram-small.jpg`
+
   },
   {
     title: 'Product',
-    description: 'Evaluating your current user feedback, market research, and more to optimize and maximize revenue.'
+    description: 'Evaluating your current user feedback, market research, and more to optimize and maximize revenue.',
+    backgroundImage: `${process.env.PUBLIC_URL}/photos/product-comp.jpg`
+
   },
   {
     title: 'People',
-    description: 'Provide coaching, training, development programs and evaluate strengths and team dynamics for maximize efficiency while maintaining relational integrity.'
+    description: 'Provide coaching, training, development programs and evaluate strengths and team dynamics for maximize efficiency while maintaining relational integrity.',
+    backgroundImage: `${process.env.PUBLIC_URL}/photos/people-tech.jpg`
   },
 ];
 
@@ -63,15 +68,14 @@ const FeatureSection = () => {
       </h2>
       <div className="features">
         {features.map((feature, index) => (
-          <div className="feature-card" key={index}>
+          <div
+            className="feature-card"
+            key={index}
+            style={{ backgroundImage: `url(${feature.backgroundImage})` }}
+          >
             <div className="feature-card-inner">
-              <div className="feature-card-front">
-                <h2>{feature.title}</h2>
-              </div>
-              <div className="feature-card-back">
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
-              </div>
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
             </div>
           </div>
         ))}
