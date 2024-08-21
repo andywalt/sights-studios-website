@@ -9,13 +9,17 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure it takes up the full height of the viewport */
 }
 
 .talk-content {
   max-width: 800px;
   margin: 0 auto;
   padding: 150px 0px 20px 0px;
-  height: 80vh;
+  flex-grow: 1; /* Ensure content pushes the footer down */
+  
 }
 
 .talk-box {
@@ -95,7 +99,7 @@
   }
   .talk-box {
     width: 90%;
-    height: 60%;
+    height: auto;
   }
   .form-row {
     flex-direction: column;

@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 import './heroSection.css';
+
+import { Link } from 'react-router-dom';
+
 import CircleAnimation from '../../CircleAnimation/CircleAnimation';
 
 import gsap from "gsap";
@@ -52,7 +55,9 @@ const HeroSection = () => {
       <div className="hero-content">
         <h1 id="sights-studios-name" className='hero-name-highlight'>Sights Studios</h1>
         <h3 className="hero-caption">Transforming your organization with advanced solutions.</h3>
-        <button className="cta-button">See the Magic</button>
+        <Link to="/contact">
+          <button className="cta-button">See the Magic</button>
+        </Link>
       </div>
       <CircleAnimation />
     </div>

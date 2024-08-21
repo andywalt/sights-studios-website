@@ -56,7 +56,7 @@ const ServicesPage = () => {
 
   useEffect(() => {
     if (animationComplete) {
-      console.log('Animation complete, starting content animation');
+
       const lineAnimationHeight = lineAnimationRef.current?.offsetHeight || 0;
       
       gsap.to(window, {
@@ -74,6 +74,8 @@ const ServicesPage = () => {
           console.log('Content animation complete');
         }
       });
+
+      
     }
   }, [animationComplete]);
 

@@ -36,15 +36,19 @@ const LineAnimation = ({ onComplete }) => {
 
     // Show H3-1 & H3-2 This is your business & We get it.
     tl.to('#h3-1', { opacity: 1 }, '+=1')
-      .to('#h3-2', { opacity: 1 }, '+=1');
+      .to('#h3-2', { opacity: 1 }, '+=1')
+
     
     // Hide H3-1 & H3-2
     tl.to('#h3-1', { opacity: 0 }, '+=0.5')
       .to('#h3-2', { opacity: 0 }, '+=1');
 
+    
     tl.to('#h3-3', { opacity: 1 }, '-=1')
       .to('#h3-4', { opacity: 1 }, '+=1')
-      .to('#line-2', {stroke: 'var(--primary-green)', strokeWidth: 40}, '-=1');
+      .to('#line-2', {stroke: 'var(--primary-green)', strokeWidth: 40}, '-=2');
+
+    
 
     // Highlight Main Path Green and Increase Stroke Width
     linesOrder.forEach((lineId, index) => {
@@ -54,7 +58,9 @@ const LineAnimation = ({ onComplete }) => {
     tl.to('#h3-3', { opacity: 0 }, '-=1')
       .to('#h3-4', { opacity: 0 }, '+=1');
 
-    tl.to('#h3-5', { opacity: 1 }, '-=1');
+    tl.to('#h3-5', { opacity: 1 }, '-=1')
+
+    
 
     // Remove Non Main Path Lines from View
     tl.add(() => {
@@ -76,8 +82,8 @@ const LineAnimation = ({ onComplete }) => {
     const moveLines = (group) => {
       tl.to(group.map(lineId => `#${lineId}`), {
         attr: { d: `M${centerX - 800},400 L${centerX + 800},400` }, // Adjust the path data directly
-        duration: 0.25,
-        stagger: 0.1, // Optional stagger for smoother effect
+        duration: 0.05,
+        stagger: 0.1,
       });
     };
 
@@ -98,18 +104,32 @@ const LineAnimation = ({ onComplete }) => {
       duration: .1,
     });
 
-    // Turn final line amber and move up 
-    tl.to('.lower-title', { bottom: "75%", duration: 1 }, '-=0.5')
-      .to('#h3-6', { opacity: 1 }, '+=1')
-      .to('#h3-5', { opacity: 0 }, '-=0.5')
-      .to(`#line-2`, { stroke: 'var(--secondary-amber)', strokeWidth: 40, duration: 1 }, `-=1`);
+    // Calculate the y-position of the amber line (#line-2)
+    tl.add(() => {
+      const amberLine = document.querySelector(`#line-2`);
+      const amberLineRect = amberLine.getBoundingClientRect();  // Get the bounding box of the line
+      const h3_6 = document.querySelector('#h3-6');
+      const h3_6Rect = h3_6.getBoundingClientRect();
+
+      // Calculate the distance to move #h3-6 based on amber line position
+      const moveY = amberLineRect.top - h3_6Rect.top - 40; // Adjust 10px if you need some space between line and text
+
+      // Move h3-6 to the position above the amber line
+      gsap.to('#h3-6', { y: moveY, opacity: 1, duration: 1 });
+    }, '+=1');
+
+    tl.to('#h3-5', { opacity: 0 }, '-=0.5')
+      .to(`#line-2`, { stroke: 'var(--secondary-amber)', strokeWidth: 40, duration: 3 }, `-=1`);
+
+    // Pause the animation at the end for debugging
+    tl.addPause('+=2');
 
   }, []);
 
   return (
     <div className="knot-container">
       <div className='upper-title'>
-        <h3 id="h3-1" style={{ opacity: 0 }}>This is your business...</h3>
+        <h3 id="h3-1" style={{ opacity: 1 }}>This is your business...</h3>
         <h3 id="h3-3" style={{ opacity: 0 }}>Here's where we come in...</h3>
         <h3 id="h3-5" style={{ opacity: 0 }}>So you can focus on what's important to you.</h3>
       </div>
@@ -117,7 +137,7 @@ const LineAnimation = ({ onComplete }) => {
         <MessyLines className="messy-lines" />
       </svg>
       <div className='lower-title'>
-        <h3 id="h3-2" style={{ opacity: 1 }}>We get it, you're trying to figure out what do...</h3>
+        <h3 id="h3-2" style={{ opacity: 0 }}>We get it, you're trying to figure out what do...</h3>
         <h3 id="h3-4" style={{ opacity: 0 }}>We help you figure it out, then make it make sense!</h3>
         <h3 id="h3-6" style={{ opacity: 0 }}>Which is probably revenue...</h3>
       </div>

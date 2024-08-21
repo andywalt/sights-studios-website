@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import './AboutPage.css';
 
 const AboutMeSection = () => {
@@ -16,7 +18,9 @@ const AboutMeSection = () => {
           <p>I'm an avid golfer and love the process of getting better and pursuing greatness while also managing perfectionism and bad breaks.</p>
         </div>
       </div>
-      <button className="cta-button">See the Magic</button>
+      <Link to="/contact">
+          <button className="cta-button">See the Magic</button>
+        </Link>
     </div>
   );
 };

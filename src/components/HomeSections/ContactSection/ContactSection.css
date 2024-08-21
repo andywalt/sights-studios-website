@@ -96,4 +96,45 @@
 
 .cta-button:hover {
   background-color: #0056b3;
+
+}
+
+/* Flex column direction for mobile view */
+@media (max-width: 768px) {
+  .contact-section {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .contact-form-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .contact-subheading {
+    width: 50%; /* Adjust the width to fit nicely under the heading */
+    max-width: 400px; /* Ensure it doesn't stretch too wide */
+    margin: 0 auto 20px auto; /* Center the subheading and add some spacing below */
+    text-align: center; /* Center the text */
+  }
+
+  .checkbox-group {
+    align-items: center;
+  }
+
+  .contact-form input {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .checkbox-area {
+    justify-content: center;
+  }
+
+  .cta-button {
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto 0 auto; /* Center the button */
+  }
 }

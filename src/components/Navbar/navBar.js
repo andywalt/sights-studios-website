@@ -51,22 +51,25 @@ const Navbar = () => {
   
 
   return (
-    <nav className="navbar">
-      <Link to="/">
-        <img src={`${process.env.PUBLIC_URL}/photos/sightsstudioslogo-5-best.png`} alt="sights studios logo" />
-      </Link>
-      <ul className={`navbar-links ${isOpen ? 'navbar-active' : ''}`}>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/services">Services</Link></li>
-        <li><Link to="/contact">Contact</Link></li>
-      </ul>
-      <div className="navbar-toggle" id="mobile-menu" onClick={toggleNavbar}>
+    <div>
+      <div className={`navbar-toggle ${isOpen ? 'navbar-active' : ''}`} id="mobile-menu" onClick={toggleNavbar}>
         <span className="bar"></span>
         <span className="bar"></span>
         <span className="bar"></span>
       </div>
-    </nav>
+
+      <nav className={`navbar ${isOpen ? 'navbar-active' : ''}`}>
+        <Link to="/">
+          <img src={`${process.env.PUBLIC_URL}/photos/sightsstudioslogo-5-best.png`} alt="sights studios logo" id="ss-logo" />
+        </Link>
+        <ul className={`navbar-links ${isOpen ? 'navbar-active' : ''}`}>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/services">Services</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
+        </ul>
+      </nav>
+    </div>
   );
 };
 

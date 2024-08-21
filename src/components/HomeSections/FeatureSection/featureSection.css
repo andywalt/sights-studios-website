@@ -34,21 +34,34 @@
 
 .features {
   display: flex;
-  flex-direction: column; /* Default to column layout for mobile */
-  align-items: center;
+  flex-wrap: wrap; /* Wraps the content in case of overflow */
+  justify-content: space-around; /* Center items in the container */
+  flex-direction: row;
+  align-items: stretch; /* Ensures items stretch to fill container height */
   margin-top: 30px;
 }
 
+.features a {
+  display: block;
+  width: 30%;
+  text-decoration: none; /* Remove underline from links */
+  margin: 10px;
+  padding: 0;
+
+}
+
 .feature-card {
-  width: 80%; /* Adjust to take up most of the width on mobile */
-  margin: 10px 0; /* Ensure some margin between the cards on mobile */
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
+  width: 100%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 250px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
   transition: transform 0.3s ease, background-size 0.3s ease;
 }
 
@@ -97,15 +110,18 @@
   transform: translateY(0); /* Move the description into view */
 }
 
-@media (min-width: 769px) {
+@media (max-width: 769px) {
   .features {
-    flex-direction: row; /* Arrange cards in a row on desktop */
-    justify-content: space-around;
+    flex-direction: column; /* Arrange cards in a column on mobile */
+    justify-content: flex-start;
+  }
+
+  .features a {
+    width: 100%;
+    margin: 10px 0;
   }
 
   .feature-card {
-    width: 30%; /* Adjusts to 30% width on desktop */
-    max-width: 30%; /* Ensures the cards don't grow too large */
-    margin: 10px; /* Margin between the cards */
+    height: 250px;
   }
 }

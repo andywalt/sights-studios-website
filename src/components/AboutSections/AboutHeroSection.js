@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import './AboutPage.css';
 
 const AboutHeroSection = () => {
@@ -7,7 +9,9 @@ const AboutHeroSection = () => {
       <div className="about-hero-content">
       <h1>“You are never too old to set another goal or to dream a new dream.”</h1>
         <p>- C.S. Lewis</p>
-        <button className="cta-button">See the Magic</button>
+        <Link to="/contact">
+          <button className="cta-button">See the Magic</button>
+        </Link>
       </div>
       <div className="about-hero-image">
         <div className="green-overlay"></div>

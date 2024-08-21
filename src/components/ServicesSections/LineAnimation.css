@@ -1,6 +1,6 @@
 .knot-container {
   width: 100%;
-  height: 50vh;
+  height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,40 +18,36 @@
     margin: 0;
 }
 
-svg {
-  width: 80%;
-  height: 80%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .upper-title,
 .lower-title {
   width: 90%;
   text-align: center;
-  position: absolute;
-}
-
-.upper-title {
-  margin-top: 1em;
-  height: 4em;
-  top: 10%;
-}
-
-.lower-title {
-  bottom: 48%;
+  margin: 0.5em 0; /* Add vertical spacing */
 }
 
 .upper-title h3,
 .lower-title h3 {
   font-size: 1.5em;
-  margin: 0.5em 0;
-  position: absolute;
-  width: 100%;
   text-transform: uppercase;
+}
+
+svg {
+  width: 100%; 
+  height: auto; /* Let height adjust naturally based on content */
+  display: block; /* Ensure it behaves like a block element */
+  margin: 0 auto; /* Center the SVG horizontally */
 }
 
 .main-path {
   stroke: var(--primary-green);
+}
+
+@media (max-width: 768px) {
+  .knot-container {
+    height: 95vh; /* Adjust height for mobile */
+  }
+
+  .upper-title {
+    margin-top: 1em; /* Adjust margin to push the SVG down */
+  }
 }

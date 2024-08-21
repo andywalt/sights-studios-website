@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';  // Import Link from react-router-dom
 import { gsap } from 'gsap';
 import './featureSection.css';
 
@@ -6,19 +7,25 @@ const features = [
   {
     title: 'Processes',
     description: 'We evaluate your current systems, workflows, habits, and methods and then map them before developing efficiencies and new products around them.',
-    backgroundImage: `${process.env.PUBLIC_URL}/photos/processes-diagram-small.jpg`
+    backgroundImage: `${process.env.PUBLIC_URL}/photos/processes-diagram-small.jpg`,
+    link: '/services#processes'  // Add link for Processes
+
 
   },
   {
     title: 'Product',
     description: 'Evaluating your current user feedback, market research, and more to optimize and maximize revenue.',
-    backgroundImage: `${process.env.PUBLIC_URL}/photos/product-comp.jpg`
+    backgroundImage: `${process.env.PUBLIC_URL}/photos/product-comp.jpg`,
+    link: '/services#product'  // Add link for Product
+
 
   },
   {
     title: 'People',
     description: 'Provide coaching, training, development programs and evaluate strengths and team dynamics for maximize efficiency while maintaining relational integrity.',
-    backgroundImage: `${process.env.PUBLIC_URL}/photos/people-tech.jpg`
+    backgroundImage: `${process.env.PUBLIC_URL}/photos/people-tech.jpg`,
+    link: '/services#people'  // Add link for People
+
   },
 ];
 
@@ -68,16 +75,17 @@ const FeatureSection = () => {
       </h2>
       <div className="features">
         {features.map((feature, index) => (
-          <div
-            className="feature-card"
-            key={index}
-            style={{ backgroundImage: `url(${feature.backgroundImage})` }}
-          >
-            <div className="feature-card-inner">
-              <h3>{feature.title}</h3>
-              <p>{feature.description}</p>
+          <Link to={feature.link} key={index}>  {/* Wrap the card in a Link */}
+            <div
+              className="feature-card"
+              style={{ backgroundImage: `url(${feature.backgroundImage})` }}
+            >
+              <div className="feature-card-inner">
+                <h3>{feature.title}</h3>
+                <p>{feature.description}</p>
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

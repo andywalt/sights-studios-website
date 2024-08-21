@@ -9,7 +9,7 @@
   color: var(--secondary-amber);
   text-align: left; /* Changed to left align text */
   font-family: "Inter";
-  padding: 0 5%;
+  padding: 0;
 }
 
 .hero-content {
@@ -96,7 +96,7 @@
 
 @media (max-width: 768px) {
   .hero-section {
-    height: 100vh;
+    height: 80vh;
     width: 100%;
     display: flex;
     flex-direction: column;
