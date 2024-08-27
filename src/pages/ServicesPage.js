@@ -55,16 +55,34 @@ const ServicesPage = () => {
   const navbarRef = useRef(null);
 
   useEffect(() => {
-    if (animationComplete) {
+    const hasSeenAnimation = localStorage.getItem('hasSeenAnimation');
 
-      const lineAnimationHeight = lineAnimationRef.current?.offsetHeight || 0;
-      
+    if (hasSeenAnimation) {
+      // Skip animation and make sure the content is visible
+      setAnimationComplete(true);
       gsap.to(window, {
-        duration: 0.5,
+        duration: 0,
         scrollTo: { y: 0 },
-        ease: 'power2.inOut'
+        ease: 'none'
       });
+      gsap.to(contentRef.current, {
+        duration: 0,
+        y: 0,
+        opacity: 1,
+        ease: 'none',
+      });
+    } else {
+      // Ensure the window is scrolled to the top before animation
+      gsap.to(window, {
+        duration: 0,
+        scrollTo: { y: 0 },
+        ease: 'none'
+      });
+    }
+  }, []);
 
+  useEffect(() => {
+    if (animationComplete) {
       gsap.to(contentRef.current, {
         duration: 0.5,
         y: 0,
@@ -74,22 +92,24 @@ const ServicesPage = () => {
           console.log('Content animation complete');
         }
       });
-
-      
     }
   }, [animationComplete]);
 
   const handleAnimationComplete = () => {
     console.log('Line animation complete');
+    localStorage.setItem('hasSeenAnimation', 'true');
     setAnimationComplete(true);
   };
+
 
   return (
     <div className="services-page">
       <Navbar ref={navbarRef} />
-      <div ref={lineAnimationRef} className={`services-page-top ${animationComplete ? 'hide' : ''}`}>
-        <LineAnimation onComplete={handleAnimationComplete} />
-      </div>
+      {!animationComplete && (
+        <div ref={lineAnimationRef} className="services-page-top">
+          <LineAnimation onComplete={handleAnimationComplete} />
+        </div>
+      )}
       <div ref={contentRef} className={`services-content ${animationComplete ? 'show' : ''}`}>
         <div className="services-header">
           <h1>Services</h1>

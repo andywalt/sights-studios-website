@@ -11,6 +11,7 @@
   z-index: 1000;
   transition: all 0.3s ease-in-out;
   box-sizing: border-box; /* Ensure padding is included in the width */
+  font-family: "Inter";
 }
 
 #ss-logo {

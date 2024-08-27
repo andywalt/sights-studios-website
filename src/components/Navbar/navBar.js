@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, forwardRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { gsap } from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -6,7 +6,7 @@ import '../Navbar/navBar.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Navbar = () => {
+const Navbar = forwardRef((props, ref) => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
@@ -58,7 +58,7 @@ const Navbar = () => {
         <span className="bar"></span>
       </div>
 
-      <nav className={`navbar ${isOpen ? 'navbar-active' : ''}`}>
+      <nav className={`navbar ${isOpen ? 'navbar-active' : ''}`} ref={ref}>
         <Link to="/">
           <img src={`${process.env.PUBLIC_URL}/photos/sightsstudioslogo-5-best.png`} alt="sights studios logo" id="ss-logo" />
         </Link>
@@ -71,6 +71,6 @@ const Navbar = () => {
       </nav>
     </div>
   );
-};
+});
 
 export default Navbar;

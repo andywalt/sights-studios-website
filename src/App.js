@@ -3,10 +3,10 @@ import HomePage from './pages/HomePage';
 import AboutMePage from './pages/AboutMePage';
 import PortfolioPage from './pages/PortfolioPage';
 import ServicesPage from './pages/ServicesPage';
-import TestimonialsPage from './pages/TestimonialsPage';
+// import TestimonialsPage from './pages/TestimonialsPage';
 import BlogPage from './pages/BlogPage';
 import ContactPage from './pages/ContactPage';
-import FaqPage from './pages/FaqPage';
+// import FaqPage from './pages/FaqPage';
 
 function App() {
   return (
@@ -16,10 +16,10 @@ function App() {
         <Route path="/about" element={<AboutMePage />} />
         <Route path="/portfolio" element={<PortfolioPage />} />
         <Route path="/services" element={<ServicesPage />} />
-        <Route path="/testimonials" element={<TestimonialsPage />} />
-        <Route path="/blog" element={<BlogPage />} />
+        {/* <Route path="/testimonials" element={<TestimonialsPage />} /> */}
+        {/* <Route path="/blog" element={<BlogPage />} /> */}
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/faq" element={<FaqPage />} />
+        {/* <Route path="/faq" element={<FaqPage />} /> */}
       </Routes>
     </Router>
     

@@ -3,12 +3,7 @@
   "name": "Sights Studios - AI & Business Efficiency Consulting",
   "icons": [
     {
-      "src": "/photos/android-chrome-192x192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "/photos/android-chrome-512x512.png",
+      "src": "/sightsstudioslogo-5-square.jpg",
       "type": "image/png",
       "sizes": "512x512"
     }

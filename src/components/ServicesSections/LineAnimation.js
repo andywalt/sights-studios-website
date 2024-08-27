@@ -23,7 +23,7 @@ const LineAnimation = ({ onComplete }) => {
     const otherLines = allLines.filter(line => !linesOrder.includes(line)).map(line => `#${line}`);
 
     const svg = document.getElementById('line-animation');
-    const svgWidth = svg.viewBox.baseVal.width;
+    const svgWidth = svg.viewBox.baseVal.width; // Check if SVG exists
     const centerX = svgWidth / 2;
 
     const tl = gsap.timeline({
@@ -104,18 +104,22 @@ const LineAnimation = ({ onComplete }) => {
       duration: .1,
     });
 
-    // Calculate the y-position of the amber line (#line-2)
+    // Safely calculate the y-position of the amber line (#line-2)
     tl.add(() => {
       const amberLine = document.querySelector(`#line-2`);
-      const amberLineRect = amberLine.getBoundingClientRect();  // Get the bounding box of the line
-      const h3_6 = document.querySelector('#h3-6');
-      const h3_6Rect = h3_6.getBoundingClientRect();
+      if (amberLine) {
+        const amberLineRect = amberLine.getBoundingClientRect();  // Get the bounding box of the line
+        const h3_6 = document.querySelector('#h3-6');
+        if (h3_6) {
+          const h3_6Rect = h3_6.getBoundingClientRect();
 
-      // Calculate the distance to move #h3-6 based on amber line position
-      const moveY = amberLineRect.top - h3_6Rect.top - 40; // Adjust 10px if you need some space between line and text
+          // Calculate the distance to move #h3-6 based on amber line position
+          const moveY = amberLineRect.top - h3_6Rect.top - 40; // Adjust 10px if you need some space between line and text
 
-      // Move h3-6 to the position above the amber line
-      gsap.to('#h3-6', { y: moveY, opacity: 1, duration: 1 });
+          // Move h3-6 to the position above the amber line
+          gsap.to('#h3-6', { y: moveY, opacity: 1, duration: 1 });
+        }
+      }
     }, '+=1');
 
     tl.to('#h3-5', { opacity: 0 }, '-=0.5')

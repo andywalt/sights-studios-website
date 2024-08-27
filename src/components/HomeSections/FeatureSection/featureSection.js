@@ -8,7 +8,7 @@ const features = [
     title: 'Processes',
     description: 'We evaluate your current systems, workflows, habits, and methods and then map them before developing efficiencies and new products around them.',
     backgroundImage: `${process.env.PUBLIC_URL}/photos/processes-diagram-small.jpg`,
-    link: '/services#processes'  // Add link for Processes
+    link: '/services'  // Add link for Processes
 
 
   },
@@ -16,7 +16,7 @@ const features = [
     title: 'Product',
     description: 'Evaluating your current user feedback, market research, and more to optimize and maximize revenue.',
     backgroundImage: `${process.env.PUBLIC_URL}/photos/product-comp.jpg`,
-    link: '/services#product'  // Add link for Product
+    link: '/services'  // Add link for Product
 
 
   },
@@ -24,7 +24,7 @@ const features = [
     title: 'People',
     description: 'Provide coaching, training, development programs and evaluate strengths and team dynamics for maximize efficiency while maintaining relational integrity.',
     backgroundImage: `${process.env.PUBLIC_URL}/photos/people-tech.jpg`,
-    link: '/services#people'  // Add link for People
+    link: '/services'  // Add link for People
 
   },
 ];

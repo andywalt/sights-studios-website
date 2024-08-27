@@ -79,7 +79,6 @@
   text-align: left;
   flex: 0 1 calc(40% - 50px); /* Adjust width as needed */
   transition: all 0.3s ease;
-  cursor: pointer;
   border-radius: 8px;
   gap: 20px;
   display: flex;

@@ -32,6 +32,15 @@ const CircleAnimation = () => {
     return { centerX, centerY, width: rect.width, height: rect.height };
   };
 
+  const resetAnimationState = () => {
+    // Reset the positions and opacity of elements to their initial states
+    gsap.set('#dot', { clearProps: "all" });
+    gsap.set('.circle', { clearProps: "all" });
+    gsap.set('#line1, #line2, #line3', { clearProps: "all" });
+    gsap.set('#sights-studios', { opacity: 0 });
+    gsap.set('.scroll-arrow', { opacity: 0 });
+  };
+
   const updatePositions = () => {
     if (animationCompleted) return;  // Prevent update if animation is complete
 
@@ -42,6 +51,8 @@ const CircleAnimation = () => {
       center4: calculateCenter('circle4'),
     };
     setCenters(newCenters);
+
+    resetAnimationState();  // Reset animation state before restarting
     
     const circles = document.querySelectorAll('.circle');
     const svg = document.getElementById('line-container');
@@ -57,7 +68,12 @@ const CircleAnimation = () => {
         line.setAttribute('x2', `${centerX}px`);
       }
     });
+    
+    startAnimation(newCenters);  // Start animation with updated positions
 
+  };
+
+  const startAnimation = (newCenters) => {
     const dot = document.getElementById('dot');
     const dotSize = dot.offsetWidth; // get current dot size
 
@@ -245,6 +261,7 @@ const CircleAnimation = () => {
     
         .call(() => setAnimationCompleted(true));
       }
+      
     });
   };
 
@@ -258,7 +275,7 @@ const CircleAnimation = () => {
         updatePositions();
       };
       window.addEventListener('resize', handleResize);
-  
+
       return () => {
         window.removeEventListener('resize', handleResize);
       };
@@ -280,7 +297,7 @@ const CircleAnimation = () => {
         <line id="line3" x1={centers.center3.centerX} y1={centers.center3.centerY} x2={centers.center3.centerX} y2={centers.center3.centerY} />
       </svg>
       <h1 id="sights-studios" className="hidden-text" ref={textRef}>
-        {isMobile ? "Let's get started" : "Connecting the dots so Excellence & Efficiency Meet"}
+      {isMobile ? "Let's get started" : <>Connecting the dots so Excellence & Efficiency Meet</>}
       </h1>
       <div className="scroll-arrow" style={{ opacity: 0 }}>&#x2193;</div>
 
