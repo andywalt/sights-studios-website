@@ -12,3 +12,10 @@ body {
   color: var(--text-color);
   font-family: "Inter", "Judson", "DM Sans", Arial, sans-serif;
 }
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100vw;
+}

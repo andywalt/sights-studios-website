@@ -3,6 +3,7 @@
   padding: 50px;
   text-align: center;
   font-family: 'Inter';
+  color: var(--bg);
 }
 
 .contact-heading {
@@ -26,7 +27,7 @@
 .contact-form-container {
   display: flex;
   flex-direction: column; /* Side by side for form and checkbox group */
-  justify-content: space-between; /* Equal space between form and checkbox group */
+  justify-content: center; /* Equal space between form and checkbox group */
   align-items: flex-start; /* Align items to the top */
   gap: 30px;
   width: 100%;
@@ -83,6 +84,11 @@
   padding: 10px;
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.checkbox-area svg {
+  width: 30px;
 }
 
 .checkbox-area:hover {

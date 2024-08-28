@@ -5,7 +5,6 @@ import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 
 import Navbar from '../components/Navbar/navBar';
 import LineAnimation from '../components/ServicesSections/LineAnimation.js';
-import Footer from '../components/HomeSections/FooterSection/footer';
 
 import { ReactComponent as ProjectDiagramIcon } from "../components/ServicesSections/ServicesSVGs/project-diagram.svg"; // import the SVG component
 import { ReactComponent as CogsIcon } from "../components/ServicesSections/ServicesSVGs/cogs.svg"; // import the SVG component
@@ -136,7 +135,6 @@ const ServicesPage = () => {
           <p>If you are interested in any of our services, please contact us for more information.</p>
           <button className="cta-button">Contact Us</button>
         </div>
-        <Footer />
       </div>
     </div>
   );

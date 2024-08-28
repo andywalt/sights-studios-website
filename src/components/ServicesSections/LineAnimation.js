@@ -128,7 +128,7 @@ const LineAnimation = ({ onComplete }) => {
     // Pause the animation at the end for debugging
     tl.addPause('+=2');
 
-  }, []);
+  });
 
   return (
     <div className="knot-container">

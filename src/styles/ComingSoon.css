@@ -1,0 +1,40 @@
+/* ComingSoon.css */
+
+.container-link {
+  text-decoration: none; /* Removes underline from the link */
+  color: inherit; /* Inherits text color */
+  display: block; /* Ensures the entire block is clickable */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--text-color);
+  color: var(--bg);
+  text-align: center;
+  padding: 20px;
+}
+
+
+
+.logo-container {
+  margin-bottom: 30px;
+}
+
+.logo {
+  width: 150px;
+  height: auto;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+}

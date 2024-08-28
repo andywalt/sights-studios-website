@@ -6,8 +6,8 @@ const Footer = () => {
     <div className="footer">
       <p>© 2024 AI & Business Efficiencies Consulting. All rights reserved.</p>
       <div className="footer-links">
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/terms">Terms of Service</a>
+        <a href="/coming-soon">Privacy Policy</a>
+        <a href="/coming-soon">Terms of Service</a>
       </div>
     </div>
   );

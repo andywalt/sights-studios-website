@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar/navBar.js";
 import HeroSection from '../components/HomeSections/HeroSection/heroSection';
 import FeatureSection from '../components/HomeSections/FeatureSection/featureSection';
 import ContactSection from "../components/HomeSections/ContactSection/ContactSection.js";
-import Footer from '../components/HomeSections/FooterSection/footer';
+
 // import CardCarousel from '../components/CardCarousel/CardCarousel';
 
 function HomePage() {
@@ -14,7 +14,6 @@ function HomePage() {
       <FeatureSection />
       {/* <CardCarousel /> */}
       <ContactSection />
-      <Footer />
     </div>
   );
 };
