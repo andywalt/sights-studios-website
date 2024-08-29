@@ -73,30 +73,86 @@ const ContactPage = () => {
     email: '',
   });
 
-  const [error, setError] = useState(''); // State to track errors
+  const [errors, setErrors] = useState(''); // State to track errors
 
 
   const handleChange = (name, value) => {
+    console.log(`Updating field: ${name} with value: ${value}`);
+    
+    // Update formData state
     setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
+        ...prevData,
+        [name]: value,
     }));
-    setError(''); // Clear error when user starts typing
-  };
+
+    // Clear the corresponding error
+    setErrors((prevErrors) => {
+        const newErrors = { ...prevErrors };
+        if (value) {
+            delete newErrors[name];  // Clear error if value is present
+        }
+        console.log('Updated Errors:', newErrors);
+        return newErrors;
+    });
+};
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    let newErrors = {};
 
-    // Check for empty fields
-    const emptyFields = Object.keys(formData).filter(key => !formData[key]);
+    if (!formData.firstName) newErrors.firstName = 'First Name is required';
+    if (!formData.lastName) newErrors.lastName = 'Last Name is required';
+    if (!formData.role) newErrors.role = 'Role is required';
+    if (!formData.function) newErrors.function = 'Function is required';
+    if (!formData.company) newErrors.company = 'Company is required';
+    if (!formData.country) newErrors.country = 'Country is required';
+    if (!formData.email) newErrors.email = 'Email is required';
 
-    if (emptyFields.length > 0) {
-      setError('Please fill out all fields before submitting.');
-    } else {
-      console.log(formData);
-      // Submit the form or perform other actions
+    setErrors(newErrors);
+
+    // Only proceed with the form submission if there are no errors
+    if (Object.keys(newErrors).length === 0) {
+        // Proceed with API submission
+        submitForm();
     }
   };
+
+  const submitForm = async () => {
+    const data = {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        role: formData.role,
+        function: formData.function,
+        company: formData.company,
+        country: formData.country,
+        email: formData.email,
+    };
+
+    try {
+        const response = await fetch('https://meh8vo2iag.execute-api.us-east-1.amazonaws.com/prod/contact-home', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+            console.log('Form submitted successfully!');
+            // Handle success (e.g., show a success message, clear the form)
+        } else {
+            console.error('Error submitting the form.');
+            // Handle errors (e.g., show an error message)
+        }
+    } catch (error) {
+        console.error('Request failed', error);
+        // Handle errors (e.g., show an error message)
+    }
+  };
+
+  
 
   const roleOptions = [
     { value: 'General Manager / Managing Director', label: 'General Manager / Managing Director' },
@@ -148,7 +204,6 @@ const ContactPage = () => {
           </p>
           <form className="talk-form" onSubmit={handleSubmit}>
             <h2>Let's Talk</h2>
-            {error && <p className="error-message">{error}</p>} {/* Display error message */}
             <div className="form-row" id='name-line'>
               <span>Howdy, my name is </span>
               <label htmlFor="firstName">
@@ -159,9 +214,10 @@ const ContactPage = () => {
                   placeholder="First Name*"
                   value={formData.firstName}
                   onChange={(e) => handleChange(e.target.name, e.target.value)}
-                  required
                 />
                 <span className="bottom-line"></span>
+                {errors.firstName && <span className="error-message">{errors.firstName}</span>}
+
               </label>
               <span className='spacer'> </span>
               <label htmlFor="lastName">
@@ -172,9 +228,9 @@ const ContactPage = () => {
                   placeholder="Last Name*"
                   value={formData.lastName}
                   onChange={(e) => handleChange(e.target.name, e.target.value)}
-                  required
                 />
                 <span className="bottom-line"></span>
+                {errors.lastName && <span className="error-message">{errors.lastName}</span>}
               </label>
               <span>.</span>
             </div>
@@ -188,6 +244,7 @@ const ContactPage = () => {
                 onChange={(selectedOption) => handleChange('role', selectedOption.value)}
                 styles={customStyles}
               />
+              {errors.role && <span className="error-message">{errors.role}</span>}
               <span> in </span>
               <CustomDropdown
                 id="function"
@@ -197,6 +254,7 @@ const ContactPage = () => {
                 onChange={(selectedOption) => handleChange('function', selectedOption.value)}
                 styles={customStyles}
               />
+              {errors.function && <span className="error-message">{errors.function}</span>}
               <span>,</span>
             </div>
             <div className="form-row" id='company-line'>
@@ -209,9 +267,9 @@ const ContactPage = () => {
                   placeholder="Company*"
                   value={formData.company}
                   onChange={(e) => handleChange(e.target.name, e.target.value)}
-                  required
                 />
                 <span className="bottom-line"></span>
+                {errors.company && <span className="error-message">{errors.company}</span>}
               </label>
               <span>, located in </span>
               <CustomDropdown
@@ -222,6 +280,7 @@ const ContactPage = () => {
                 onChange={(selectedOption) => handleChange('country', selectedOption.value)}
                 styles={customStyles}
               />
+              {errors.country && <span className="error-message">{errors.country}</span>}
               <span>.</span>
             </div>
             <div className="form-row" id='email-line'>
@@ -234,9 +293,9 @@ const ContactPage = () => {
                   placeholder="Work Email*"
                   value={formData.email}
                   onChange={(e) => handleChange(e.target.name, e.target.value)}
-                  required
                 />
                 <span className="bottom-line"></span>
+                {errors.email && <span className="error-message">{errors.email}</span>}
               </label>
               <span>.</span>
             </div>

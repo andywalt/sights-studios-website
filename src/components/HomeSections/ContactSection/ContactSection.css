@@ -84,7 +84,7 @@
   padding: 10px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .checkbox-area svg {
@@ -98,11 +98,17 @@
   color: #FAF9F6;
 }
 
+.checkbox-area span {
+  flex-grow: 1; /* Ensure the text takes up available space */
+}
+
 .star-icon {
   font-size: 2rem;
   margin-right: 10px;
   cursor: pointer;
   color: #ccc;
+  transition: transform 0.2s ease; /* Smooth transition */
+  flex-shrink: 0;
 }
 
 .star-icon.checked {
@@ -124,6 +130,22 @@
   background-color: #0056b3;
 
 }
+
+.success-message {
+  text-align: center;
+  padding: 20px;
+}
+
+.success-message h2 {
+  font-size: 1.5rem;
+  color: #145214;
+}
+
+.success-message p {
+  font-size: 1rem;
+  color: #145214;
+}
+
 
 /* Flex column direction for mobile view */
 @media (max-width: 768px) {
