@@ -1,35 +1,49 @@
 .feature-section {
   padding: 50px;
   text-align: center;
-  background-color: #101010;
+  background-color: var(--bg);
 }
 
 .rotating-word-section {
   font-size: 2.5rem;
   color: var(--text-color);
+  text-align: center;
 }
 
 .rotating-word-container {
   display: inline-block;
   position: relative;
-  width: 200px; /* Adjust this width to ensure it matches the length of the longest word */
+  width: 220px; /* Fixed width for the container */
   height: 1.2em;
-  overflow: hidden;
+  overflow: visible; /* Ensure the underline is visible */
   vertical-align: bottom;
+  text-align: center; /* Center the rotating word within the container */
 }
 
 .rotating-word {
   display: inline-block;
-  position: absolute;
-  width: 100%;
-  left: 0;
+  position: relative;
+  white-space: nowrap; /* Prevents the word from breaking */
 }
 
 .underline {
-  width: 200px; /* Match this width to the rotating-word-container width */
+  position: absolute;
+  left: 0;
+  bottom: -10px; /* Adjust this value if the underline needs to move up or down */
+  width: 100%; /* Match the width to the content's width */
+  max-width: 220px; /* Ensure underline matches the container width */
   height: 5px;
   background-color: #145214; /* Adjust the color as needed */
-  margin-top: 40px; /* Adjust the value to move the underline further down */
+}
+
+.rotating-word-section .period {
+  display: inline-block;
+  vertical-align: bottom;
+  margin-left: 5px; /* Slight space between the rotating word and the period */
+}
+
+.break-mobile {
+  display: none; /* Hide the line breaks on desktop */
 }
 
 .features {
@@ -123,5 +137,25 @@
 
   .feature-card {
     height: 250px;
+  }
+}
+
+@media (max-width: 400px) {
+  .rotating-word-section {
+    font-size: 2rem; /* Adjust font size for smaller screens */
+    text-align: center; /* Align text to the left for better readability on small screens */
+  }
+
+  .rotating-word-container {
+    display: inline-block;
+    width: 220px; /* Fixed width for the container */
+  }
+
+  .underline {
+    width: 220px; /* Ensure the underline width matches the fixed container width */
+  }
+
+  .break-mobile {
+    display: inline; /* Show line breaks on mobile */
   }
 }

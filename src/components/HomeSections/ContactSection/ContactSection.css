@@ -1,9 +1,15 @@
 .contact-section {
   background-color: var(--text-color);
-  padding: 50px;
   text-align: center;
   font-family: 'Inter';
   color: var(--bg);
+  position: relative;
+  overflow: hidden;  /* Prevent overflow issues during animation */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .contact-heading {
@@ -116,19 +122,13 @@
 }
 
 .cta-button {
-  margin-top: 30px;
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  color: white;
-  background-color: #007BFF;
-  border: none;
-  cursor: pointer;
   align-self: center; /* Center the button below both sections */
+  margin-bottom: 10px;
 }
 
-.cta-button:hover {
-  background-color: #0056b3;
-
+.check-icon {
+  font-size: 3rem;
+  color: var(--text-color);
 }
 
 .success-message {
@@ -178,6 +178,6 @@
   .cta-button {
     width: 100%;
     max-width: 300px;
-    margin: 20px auto 0 auto; /* Center the button */
+    margin: 20px auto 10px auto; /* Center the button */
   }
 }

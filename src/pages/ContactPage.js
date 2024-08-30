@@ -67,7 +67,7 @@ const ContactPage = () => {
     firstName: '',
     lastName: '',
     role: '',
-    function: '',
+    industry: '',
     company: '',
     country: '',
     email: '',
@@ -105,7 +105,7 @@ const ContactPage = () => {
     if (!formData.firstName) newErrors.firstName = 'First Name is required';
     if (!formData.lastName) newErrors.lastName = 'Last Name is required';
     if (!formData.role) newErrors.role = 'Role is required';
-    if (!formData.function) newErrors.function = 'Function is required';
+    if (!formData.industry) newErrors.industry = 'Industry is required';
     if (!formData.company) newErrors.company = 'Company is required';
     if (!formData.country) newErrors.country = 'Country is required';
     if (!formData.email) newErrors.email = 'Email is required';
@@ -124,7 +124,7 @@ const ContactPage = () => {
         firstName: formData.firstName,
         lastName: formData.lastName,
         role: formData.role,
-        function: formData.function,
+        industry: formData.industry,
         company: formData.company,
         country: formData.country,
         email: formData.email,
@@ -169,7 +169,7 @@ const ContactPage = () => {
     { value: 'Other', label: 'Other' },
   ];
 
-  const functionOptions = [
+  const industryOptions = [
     { value: 'Sales', label: 'Sales' },
     { value: 'Strategy', label: 'Strategy' },
     { value: 'Operations', label: 'Operations' },
@@ -247,14 +247,14 @@ const ContactPage = () => {
               {errors.role && <span className="error-message">{errors.role}</span>}
               <span> in </span>
               <CustomDropdown
-                id="function"
-                name="function"
-                options={functionOptions}
-                value={functionOptions.find(option => option.value === formData.function)}
-                onChange={(selectedOption) => handleChange('function', selectedOption.value)}
+                id="industry"
+                name="industry"
+                options={industryOptions}
+                value={industryOptions.find(option => option.value === formData.industry)}
+                onChange={(selectedOption) => handleChange('industry', selectedOption.value)}
                 styles={customStyles}
               />
-              {errors.function && <span className="error-message">{errors.function}</span>}
+              {errors.industry && <span className="error-message">{errors.industry}</span>}
               <span>,</span>
             </div>
             <div className="form-row" id='company-line'>

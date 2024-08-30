@@ -65,13 +65,13 @@ const FeatureSection = () => {
   
   return (
     <div className="feature-section">
-      <h2 className='rotating-word-section'>
-        How We Help You&nbsp;
+      <h2 className="rotating-word-section">
+        How We<span className="break-mobile"><br /></span> Help You <span className="break-mobile"><br /></span>
         <div className="rotating-word-container">
           <span className="rotating-word">{currentWord}</span>
           <div className="underline"></div>
         </div>
-        .
+        <span className="period">.</span>
       </h2>
       <div className="features">
         {features.map((feature, index) => (
