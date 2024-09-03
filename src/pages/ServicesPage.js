@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';  // Import Link from react-router-dom
 
 import gsap from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
@@ -133,7 +134,9 @@ const ServicesPage = () => {
         <div className="services-contact-section">
           <h2>Get in Touch</h2>
           <p>If you are interested in any of our services, please contact us for more information.</p>
-          <button className="cta-button">Contact Us</button>
+          <Link to="/contact">
+              <button className="cta-button">See the Magic</button>
+          </Link>
         </div>
       </div>
     </div>

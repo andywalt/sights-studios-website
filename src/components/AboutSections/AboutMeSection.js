@@ -20,7 +20,7 @@ const AboutMeSection = () => {
       </div>
       <Link to="/contact">
           <button className="cta-button">See the Magic</button>
-        </Link>
+      </Link>
     </div>
   );
 };

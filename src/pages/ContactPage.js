@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Navbar from '../components/Navbar/navBar';
 import CustomDropdown from '../components/ContactPage/CustomDropdownComponent.js';
 import '../components/ContactPage/ContactPage.css';
 
+import { gsap } from 'gsap';
+
+
 /* Custom styles for React Select */
 const customStyles = {
+  // Styles for the main control (input field and dropdown container)
   control: (provided, state) => ({
-    ...provided,
+    ...provided, // Merges the default styles with custom ones
     backgroundColor: 'transparent',
     border: state.isFocused ? 'none' : 'none',
     borderBottom: state.isFocused ? '1px solid #FAF9F6' : '1px solid #145214',
@@ -14,17 +18,19 @@ const customStyles = {
     boxShadow: 'none',
     minHeight: 'auto',
     padding: '0',
+    flexGrow: 1, // Allows the control to expand and fill available space
+    minWidth: "250px", // Sets a minimum width for the control
   }),
   placeholder: (provided) => ({
     ...provided,
     color: '#FAF9F6',
-    fontFamily: 'Inter, sans-serif',
+    fontFamily: 'Judson, sans-serif',
     fontSize: '1rem',
   }),
   input: (provided) => ({
     ...provided,
     color: '#FAF9F6',
-    fontSize: '1rem',
+    fontSize: '1.2rem',
     padding: '0',
     margin: '0',
   }),
@@ -41,23 +47,24 @@ const customStyles = {
   }),
   menu: (provided) => ({
     ...provided,
-    backgroundColor: '#FAF9F6',
+    backgroundColor: '#145214',
     borderRadius: '0',
     border: '1px solid #fff',
     marginTop: '0',
     zIndex: "10",
-    width: "10rem",
+    width: '100%', // Ensures the menu matches the width of the control
+    minWidth: '150px', // Matches the minimum width of the control
   }),
   option: (provided, state) => ({
     ...provided,
-    backgroundColor: state.isSelected ? '#145214' : 'transparent',
-    color: state.isSelected ? '#fff' : '#1D1B26',
+    backgroundColor: state.isSelected ? '#1D1B26' : 'transparent',
+    color: state.isSelected ? '#145214' : '#FAF9F6',
     fontSize: '1rem',
     ':active': {
-      backgroundColor: '#333',
+      backgroundColor: '#145214',
     },
     ':hover': {
-      backgroundColor: '#222',
+      backgroundColor: '#1D1B26',
     },
   }),
 };
@@ -74,34 +81,30 @@ const ContactPage = () => {
   });
 
   const [errors, setErrors] = useState(''); // State to track errors
+  const [story, setStory] = useState(''); // State variable to hold the story
+
+  const storyRef = useRef(null); // Ref to target the story for animation
+
 
 
   const handleChange = (name, value) => {
-    console.log(`Updating field: ${name} with value: ${value}`);
-    
-    // Update formData state
+    // Update formData state without triggering error validation
     setFormData((prevData) => ({
         ...prevData,
         [name]: value,
     }));
-
-    // Clear the corresponding error
-    setErrors((prevErrors) => {
-        const newErrors = { ...prevErrors };
-        if (value) {
-            delete newErrors[name];  // Clear error if value is present
-        }
-        console.log('Updated Errors:', newErrors);
-        return newErrors;
-    });
-};
+  };
 
 
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Submit button clicked, form submission process started.");
+
     let newErrors = {};
 
+    // Validate form fields and collect errors
     if (!formData.firstName) newErrors.firstName = 'First Name is required';
     if (!formData.lastName) newErrors.lastName = 'Last Name is required';
     if (!formData.role) newErrors.role = 'Role is required';
@@ -110,14 +113,49 @@ const ContactPage = () => {
     if (!formData.country) newErrors.country = 'Country is required';
     if (!formData.email) newErrors.email = 'Email is required';
 
+    // Update state with errors
     setErrors(newErrors);
+
+    // Log the errors to the console
+    console.log('Validation errors:', newErrors);
 
     // Only proceed with the form submission if there are no errors
     if (Object.keys(newErrors).length === 0) {
         // Proceed with API submission
-        submitForm();
+        triggerSuccessAnimation();
+        // Submit the form via API
+        await submitForm();
+
+        // Generate and display the story
+        generateStory();
     }
   };
+
+  const generateStory = () => {
+    const generatedStory = (
+        <p>
+            <span className="underline">{formData.firstName || '[First Name]'}</span><span> </span>
+            <span className="underline"> {formData.lastName || '[Last Name]'}</span> was a brilliant 
+            <span className="underline"> {formData.role || '[Role]'}</span> that transformed the 
+            <span className="underline"> {formData.industry || '[Industry]'}</span> division by partnering with Sights Studios! 
+            Together, they helped accelerate 
+            <span className="underline"> {formData.company || '[Company]'}</span>'s growth and became the envy of all of 
+            <span className="underline"> {formData.country || '[Country]'}</span>. All they had to do was respond to the email we sent to 
+            <span className="underline"> {formData.email || '[Email]'}</span> and voila! The adventure began!
+        </p>
+    );
+
+    // Update the story state
+    setStory(generatedStory);
+
+    // Trigger GSAP animation after ensuring the storyRef exists
+    setTimeout(() => {
+        if (storyRef.current) {
+            gsap.fromTo(storyRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1 });
+        }
+    }, 0); // Adjust timeout if needed, this ensures the element is in the DOM
+};
+
 
   const submitForm = async () => {
     const data = {
@@ -130,18 +168,20 @@ const ContactPage = () => {
         email: formData.email,
     };
 
+    // Trigger the animation before proceeding with the API call
+    triggerSuccessAnimation();
+
     try {
-        const response = await fetch('https://meh8vo2iag.execute-api.us-east-1.amazonaws.com/prod/contact-home', {
+        const response = await fetch('https://kzqn99dlj1.execute-api.us-east-1.amazonaws.com/default/sights-studios-contactpage-form', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(data),
+            body: JSON.stringify({ body: JSON.stringify(data) }), // Wrapping data in a body object
         });
 
         if (response.ok) {
             console.log('Form submitted successfully!');
-            // Handle success (e.g., show a success message, clear the form)
         } else {
             console.error('Error submitting the form.');
             // Handle errors (e.g., show an error message)
@@ -149,14 +189,14 @@ const ContactPage = () => {
     } catch (error) {
         console.error('Request failed', error);
         // Handle errors (e.g., show an error message)
-    }
+    } 
   };
 
   
 
   const roleOptions = [
-    { value: 'General Manager / Managing Director', label: 'General Manager / Managing Director' },
-    { value: 'Analyst / Coordinator', label: 'Analyst / Coordinator' },
+    { value: 'General Manager', label: 'General Manager' },
+    { value: 'Coordinator', label: 'Coordinator' },
     { value: 'Assistant', label: 'Assistant' },
     { value: 'Business Unit Head', label: 'Business Unit Head' },
     { value: 'C-Level', label: 'C-Level' },
@@ -173,7 +213,7 @@ const ContactPage = () => {
     { value: 'Sales', label: 'Sales' },
     { value: 'Strategy', label: 'Strategy' },
     { value: 'Operations', label: 'Operations' },
-    { value: 'Digital / Technology', label: 'Digital / Technology' },
+    { value: 'Tech', label: 'Tech' },
     { value: 'Legal', label: 'Legal' },
     { value: 'People / HR', label: 'People / HR' },
     { value: 'Marketing', label: 'Marketing' },
@@ -192,6 +232,18 @@ const ContactPage = () => {
     { value: 'Canada', label: 'Canada' },
     { value: 'Texas', label: 'Texas' },
   ];
+
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  const triggerSuccessAnimation = () => {
+      const button = document.getElementById('talk-cta-button');
+      button.classList.add('success-animation', 'grow');
+
+      setTimeout(() => {
+          setShowSuccess(true); // Show the success message after animation
+          button.classList.remove('grow'); // Reset the button scale after animation
+      }, 1000); // Wait 1 second for the animation to complete
+  };
 
   return (
     <div className="talk-page">
@@ -299,8 +351,16 @@ const ContactPage = () => {
               </label>
               <span>.</span>
             </div>
-            <button type="submit" className="cta-button" id='talk-cta-button'>Let's Get Started</button>
+            <button type="submit" className="cta-button" id='talk-cta-button'>
+                        {showSuccess ? 'Here We Go!' : "Let's Get Started"}
+            </button>
           </form>
+           {/* Display the story after successful submission */}
+           {story && (
+                <div className="success-message show" ref={storyRef}>
+                    {story}
+                </div>
+            )}
         </div>
       </div>
     </div>

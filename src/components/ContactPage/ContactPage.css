@@ -49,10 +49,12 @@
   flex-wrap: wrap;
   margin-bottom: 20px;
   align-items: center;
+  justify-content: space-between;
 }
 
 .form-row span {
   font-size: 1.2rem;
+  margin-right: 10px;
 }
 
 .form-row label {
@@ -92,12 +94,60 @@
   margin: 10px;
 }
 
+#talk-cta-button {
+  display: block;
+  width: 40%; /* Adjust the width as needed */
+  margin: 20px auto; /* This centers the button horizontally */
+  text-align: center; /* Center the text inside the button */
+}
+
 .error-message {
   color: #b5191c; /* Red color for errors */
   margin-bottom: 15px;
   font-size: 1.1rem;
   text-align: center;
 }
+
+.success-animation {
+  background: linear-gradient(45deg, #145214, #1D1B26);
+  color: var(--text-color);
+  transition: background-color 0.5s, transform 0.5s;
+}
+
+.success-animation.grow {
+  transform: scale(1.1);
+}
+
+.success-message {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  margin-top: 20px; /* Adds some space above the success message */
+  font-size: 1.2rem;
+  letter-spacing: 0.5px; /* Adjusts the letter spacing */
+  line-height: 1.6; /* Increases line height for better readability */
+}
+
+.underline {
+  text-decoration: underline;
+  position: static; /* Ensure it’s not absolutely positioned */
+  line-height: normal; /* Adjust line-height if needed */
+  margin: 0; /* Reset margins */
+  padding: 0; /* Reset padding */
+  border-radius: 5px; /* Adjust the value for the roundness */
+  background: linear-gradient(45deg, #145214, #1D1B26);
+
+}
+
+
+.success-message p {
+  color: var(--text-color);
+  
+}
+
+.success-message.show {
+  opacity: 1;
+}
+
 
 @media (max-width: 768px) {
   .talk-content {
