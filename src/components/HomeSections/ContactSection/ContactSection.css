@@ -72,7 +72,6 @@
 .checkbox-group {
   display: flex;
   flex-direction: column;
-  align-items: center;
   margin: 10px 0;
   width: 100%;
   max-width: 300px;
@@ -163,7 +162,9 @@
   }
 
   .checkbox-group {
-    align-items: center;
+    align-items: left;
+    justify-content: left;
+    max-width: 200px;
   }
 
   .contact-form input {
@@ -172,12 +173,12 @@
   }
 
   .checkbox-area {
-    justify-content: center;
+    justify-content: left;
   }
 
   .cta-button {
     width: 100%;
-    max-width: 300px;
+    max-width: 200px;
     margin: 20px auto 10px auto; /* Center the button */
   }
 }

@@ -5,19 +5,30 @@
   color: var(--text-color);
   font-family: 'Inter', sans-serif;
   position: relative;
-  background-image: url('/public/photos/glasses.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: linear-gradient(45deg, #145214, #1D1B26, #145214); /* Initial gradient */
+  background-size: 400% 400%; /* Large size to allow smooth transitions */
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Ensure it takes up the full height of the viewport */
+  animation: gradientShift 15s ease infinite; /* Smooth, infinite animation */
+}
+
+/* Define keyframes for the rolling effect */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%; /* Start from left */
+  }
+  50% {
+    background-position: 100% 50%; /* Shift to right */
+  }
+  100% {
+    background-position: 0% 50%; /* Shift back to the starting point */
+  }
 }
 
 .talk-content {
   max-width: 800px;
   margin: 0 auto;
-  padding: 150px 0px 20px 0px;
+  padding: 150px 0px 150px 0px;
   flex-grow: 1; /* Ensure content pushes the footer down */
   
 }

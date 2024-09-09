@@ -1,15 +1,18 @@
 .hero-section {
-  background-image: url("../../../../public/photos/starrysky.webp") ;
-  background-size: auto;
-  background-position: center;
-  height: 80vh;
+  background: linear-gradient(
+      rgba(29, 27, 38, 0.5), /* Dark gradient with slight transparency */
+      rgba(29, 27, 38, 0.5)
+    ),
+    url("../../../../public/photos/starrysky.webp"); /* Your background image */
+  background-size: cover; /* Ensure the image covers the full section */
+  background-position: center; /* Center the image */
+  height: 80vh; /* Height of the section */
   display: flex;
   align-items: center;
-  justify-content: space-between; /* Changed to space-between to separate content and image */
   color: var(--secondary-amber);
-  text-align: left; /* Changed to left align text */
+  text-align: left;
   font-family: "Inter";
-  padding: 0;
+  padding: 0 5rem;
 }
 
 .hero-content {
@@ -21,43 +24,93 @@
 .hero-name-highlight {
   position: relative;
   display: inline-block;
-  cursor: pointer;
-  color: #FAF9F6;
   font-size: 4rem;
-  text-decoration: none;
-  margin: 0;
-  text-shadow:1px 1px 2px #1D1B26;
-  z-index: 0;
-  text-transform: uppercase;
-  background-color: transparent;
-  transition: background-color 0.3s ease;
   font-weight: 900;
-
-}
-
-.hero-name-highlight::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 0.2em; /* Adjust height as needed */
-  bottom: 0;
-  left: 0;
-  background: linear-gradient(45deg, #145214, #1D1B26);
-  z-index: -1;
-  transition: height 0.3s ease-in-out;
-}
-
-.hero-name-highlight:hover::before {
-  height: 100%;
-  border-radius: 5px;
-}
-
-.hero-caption {
-  font-size: 1.5vw; /* Adjust size relative to screen width */
+  margin: 0;
+  text-transform: uppercase;
+  overflow: hidden;
   color: var(--text-color);
-  text-shadow: 1px 1px 2px #1D1B26;
-  transition: color 1s ease; /* Ensures smooth transition */
+  
 }
+
+.aurora {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* Place aurora in front of the text */
+  pointer-events: none;
+  mix-blend-mode: darken;
+}
+
+.aurora_item {
+  overflow: hidden;
+  position: absolute;
+  width: 60vw;
+  height: 60vw;
+  background-color: #145214; /* Start with green for the first aurora item */
+  border-radius: 37% 29% 27% 27% / 28% 25% 41% 37%;
+  filter: blur(1rem);
+  
+  
+}
+
+/* Color and animation for each aurora item */
+.aurora_item:nth-of-type(1) {
+  top: -50%;
+  left: -50%;
+  background-color: #145214; /* Green */
+  animation: aurora-1 12s ease-in-out infinite alternate;
+}
+
+.aurora_item:nth-of-type(2) {
+  right: -50%;
+  top: 0;
+  background-color: #FAF9F6; /* White */
+  animation: aurora-2 12s ease-in-out infinite alternate;
+}
+
+.aurora_item:nth-of-type(3) {
+  left: 0;
+  bottom: -50%;
+  background-color: #327827; /* Dark gray */
+  animation: aurora-3 8s ease-in-out infinite alternate;
+}
+
+.aurora_item:nth-of-type(4) {
+  right: 0;
+  bottom: -50%;
+  background-color: #8d8d8d; /* Gray */
+  animation: aurora-4 16s ease-in-out infinite alternate;
+}
+
+/* Aurora item animations */
+@keyframes aurora-1 {
+  0% { top: 0; left: 0; }
+  50% { top: 100%; left: 75%; }
+  100% { top: 0; left: 0; }
+}
+
+@keyframes aurora-2 {
+  0% { top: -50%; right: 0%; }
+  60% { top: 100%; right: 75%; }
+  100% { top: -50%; right: 0%; }
+}
+
+@keyframes aurora-3 {
+  0% { bottom: 0; left: 0; }
+  50% { bottom: 100%; left: 75%; }
+  100% { bottom: 0; left: 0; }
+}
+
+@keyframes aurora-4 {
+  0% { bottom: -50%; right: 0; }
+  50% { bottom: 0%; right: 40%; }
+  100% { bottom: -50%; right: 0; }
+}
+
+
 
 .cta-button {
   margin-top: 20px;
@@ -100,7 +153,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding-top: 10vh;
+    padding: 10vh 0 0 0;
   }
 
   .hero-content {

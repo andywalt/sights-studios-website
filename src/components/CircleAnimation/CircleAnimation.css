@@ -6,15 +6,28 @@
   position: relative;
   margin-top: 0;
   padding-top: 0;
+  
+}
+
+.animation {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
 }
 
 .circle-wrapper {
-  display: flex;
+  display: flex;margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal overflow */
   justify-content: space-between;
-  width: 90%; /* Ensure consistent width */
+  width: 100%; /* Ensure consistent width */
   height: 100%;
   position: relative;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .circle {
@@ -35,16 +48,16 @@
   margin: 0;
   background-color: #145214;
   border-radius: 50%;
-  /* display: none; /* Initially hidden, shown via GSAP */ 
+  opacity: 0;
   z-index: 10;
 }
 
 #line-container {
   position: absolute;
-  width: 90%; /* Ensure consistent width */
+  width: 100%; /* Ensure consistent width */
   height: 100%; /* Ensure height is consistent */
   z-index: 5;
-  left: 5%;
+  left: 0;
   top: 0;
 }
 
@@ -69,6 +82,9 @@
   opacity: 0;
   font-family: "Inter";
   z-index: 5;
+  margin: 0;
+  text-align: center;
+
 }
 
 @media (max-width: 768px) {
@@ -83,35 +99,49 @@
     padding-top: 0;
   }
 
+  .animation {
+    height: 100%;
+  }
+
   .circle-wrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     position: absolute;
-    width: 12vw; /* Match this with the circle width */
-    height: 100%;
+    width: 100%; /* Match this with the circle width */
+    height: 80%;
     left: 50%;
     transform: translateX(-50%); /* Center horizontally */
   }
 
   #line-container {
     position: absolute;
-    width: 12vw; /* Match this with the circle width */
-    height: 100%;
-    left: 50%;
-    transform: translateX(-50%); /* Center horizontally */
+    width: 100%; /* Match this with the circle width */
     z-index: 5;
+  }
+  #line-container line {
+    z-index: 6;
   }
 
   .circle {
     width: 12vw; /* Adjust size for mobile */
     height: 12vw; /* Adjust size for mobile */
+    border: 2px solid white; /* Add a visible border */
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .dot {
-    width: 3vw; /* Adjust size for mobile */
-    height: 3vw; /* Adjust size for mobile */
+    width: 5vw; /* Adjust size for mobile */
+    height: 5vw;
+    border-radius: 50%; /* Ensure it's a perfect circle */
+    background-color: var(--primary-green);
+    position: absolute; /* Ensure it's in the same positioning context */
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
     z-index: 10;
   }
 
@@ -136,7 +166,7 @@
     animation: bounce 1.5s infinite ease-in-out;
     transition: transform 1s ease; /* Smooth transition for the move */
     opacity: 0;
-    display: block;
+    display: none;
   }
   
   @keyframes bounce {

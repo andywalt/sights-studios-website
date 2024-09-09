@@ -3,15 +3,29 @@
   justify-content: space-between;
   align-items: center;
   padding: 20px;
-  background-color: var(--text-color); /* White background for the navbar */
+  background: linear-gradient(to right, #FAF9F6, #a2a2a2); /* Multi-step gradient */
+  background-size: 200% 100%; /* Double the width of the background to animate */
+  animation: rippleEffect 5s infinite linear; /* Infinite animation with a 5-second duration */
   position: fixed;
   top: 0;
   left: 0; /* Ensure it starts from the left edge */
   width: 100%;
   z-index: 1000;
-  transition: all 0.3s ease-in-out;
+  transition: all 2s ease-in-out;
   box-sizing: border-box; /* Ensure padding is included in the width */
   font-family: "Inter";
+}
+
+@keyframes rippleEffect {
+  0% {
+      background-position: 0% 0%; /* Start from the left */
+  }
+  50% {
+      background-position: 100% 0%; /* Move to the right */
+  }
+  100% {
+      background-position: 0% 0%; /* Return to the starting position */
+  }
 }
 
 #ss-logo {
@@ -46,6 +60,9 @@
   height: 25px;
   cursor: pointer;
   z-index: 1001; /* Ensure toggle stays above everything else */
+  position: fixed;
+  top: 20px;
+  right: 20px;
 }
 
 .bar {
@@ -64,7 +81,7 @@
     right: 0;
     height: 0;
     width: 100%;
-    background-color: #ffffff;
+    background-color: #FAF9F6;
     overflow: hidden;
     flex-direction: column;
     align-items: center;
@@ -81,7 +98,7 @@
   /* Ensure the navbar toggle is visible on mobile */
   .navbar-toggle {
     display: flex; /* Make it visible on mobile */
-    position: absolute; /* Ensure it's positioned correctly */
+    position: fixed; /* Ensure it's positioned correctly */
     top: 20px; /* Align with the top padding of the navbar */
     right: 20px; /* Align it to the right edge */
   }

@@ -3,13 +3,7 @@
   height: 70vh;
   width: 100%;
   margin: auto;
-}
-
-@media (max-width: 768px) {
-  .carousel-section {
-    height: 100vh;
-    width: 100%;
-  }
+  overflow: hidden;
 }
 
 .background-image {
@@ -18,80 +12,116 @@
   background-size: cover;
   background-position: center;
   position: relative;
+  background-repeat: no-repeat;
 }
 
+.background-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Slight dark overlay */
+  z-index: 1;
+}
+
+/* Active card information */
+.active-card-info {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 15px;
+  border-radius: 8px;
+  max-width: 30%;
+  z-index: 10;
+  text-align: left;
+  min-height: 300px; /* Increased height */
+}
+
+/* Ensure links keep the same color when clicked or visited */
+.active-card-info a {
+  color: var(--text-color); /* Example color */
+  text-decoration: none;
+}
+
+.active-card-info a:hover,
+.active-card-info a:visited,
+.active-card-info a:active {
+  color: var(--text-color); /* Keeps the same color */
+}
+
+/* Styles for small cards */
 .small-cards-container {
   position: absolute;
-  top: 5px;
-  right: 0;
+  bottom: 20px;
+  right: 20px;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  overflow-x: hidden; /* Hide overflow only horizontally */
-  max-width: 33vw; /* Ensure the container doesn't exceed 1/3 of the viewport width */
-  padding: 10px 0; /* Add padding to ensure cards are not cut off */
-  z-index: 10; /* Ensure small cards are above the background */
+  gap: 10px;
+  justify-content: center;
+  z-index: 20;
 }
 
 .small-card {
-  width: 150px;
-  height: 300px;
-  margin: 0 20px; /* Increased spacing between cards */
-  transition: transform 0.3s ease;
-  flex-shrink: 0;
-  padding-right: 25px;
+  width: 175px; /* Proportional width */
+  height: 330px; /* Match the height of the active card */
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border 0.3s ease;
 }
 
-.Card {
+.small-card img {
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center;
-  border-radius: 10px;
-  overflow: hidden;
+  object-fit: cover;
 }
 
-.active-card-info {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 300px;
+.small-card:hover {
+  border: 2px solid var(--primary-green);
 }
 
-.active-card-info h2 {
-  margin: 0 0 10px 0;
+/* White outline for active small card */
+.small-card.active {
+  border: 2px solid var(--text-color); /* White outline for the active card */
 }
 
-.active-card-info p {
-  margin: 5px 0;
-}
+/* Media queries for smaller screens (Mobile) */
+@media (max-width: 768px) {
+  .active-card-info {
+    position: relative;
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 70%; /* Skinnier width */
+    min-height: 400px; /* Taller height */
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 20px; /* Add more space below the info */
+    margin-top: 40px; /* Space between top and active card info */
+  }
 
-.arrows {
-  display: flex;
-  justify-content: right;
-  position: absolute;
-  top: 55%;
-  width: 75%;
-  transform: translateY(50%);
-}
+  .small-cards-container {
+    position: relative;
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 20px; /* Added more space between active card info and small cards */
+    gap: 12px; /* Adjust gap between small cards */
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 
-.arrow {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 10px;
-  cursor: pointer;
-}
+  .small-card {
+    width: 90px; /* Increased width for better readability */
+    height: 150px; /* Increased height for visibility */
+  }
 
-.arrow svg {
-  width: 24px;
-  height: 24px;
+  .carousel-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 0;
+  }
 }

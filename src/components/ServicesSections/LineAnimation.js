@@ -143,7 +143,7 @@ const LineAnimation = ({ onComplete }) => {
       <div className='lower-title'>
         <h3 id="h3-2" style={{ opacity: 0 }}>We get it, you're trying to figure out what do...</h3>
         <h3 id="h3-4" style={{ opacity: 0 }}>We help you figure it out, then make it make sense!</h3>
-        <h3 id="h3-6" style={{ opacity: 0 }}>Which is probably revenue...</h3>
+        <h3 id="h3-6" style={{ opacity: 0 }}>Which is growing your business...</h3>
       </div>
     </div>
   );

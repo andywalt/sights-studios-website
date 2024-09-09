@@ -1,6 +1,6 @@
 import React, { useState, useEffect, forwardRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { gsap } from "gsap";
+import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import '../Navbar/navBar.css';
 
@@ -15,40 +15,51 @@ const Navbar = forwardRef((props, ref) => {
   };
 
   useEffect(() => {
-    if (location.pathname === '/') {  // Apply ScrollTrigger for homepage only
-      if (window.innerWidth > 768) {  // Apply ScrollTrigger for desktop only
+    if (location.pathname === '/') {  // Only apply the scroll logic for the homepage
+      if (window.innerWidth > 768) {  // Apply scrollTrigger only for desktop devices
 
-        // ScrollTrigger animation for desktop
-        gsap.fromTo(".navbar", {
-          opacity: 0,
-          y: -100,
-        }, {
-          opacity: 1,
-          y: 0,
-          scrollTrigger: {
-            trigger: ".hero-name-highlight",
-            start: "top 20%",
-            end: "bottom 30%",
-            scrub: true,
-          },
+        // Initially hide the navbar on load
+        gsap.set('.navbar', { opacity: 0, y: -100 });
+
+        let navbarRevealed = false;  // Track if the navbar has been revealed
+
+        // ScrollTrigger to show navbar on scroll
+        const scrollTriggerInstance = ScrollTrigger.create({
+          trigger: ".hero-name-highlight",
+          start: "top 20%",
+          end: "bottom 30%",
+          scrub: true,
+          onEnter: () => {
+            if (!navbarRevealed) {
+              gsap.to('.navbar', { opacity: 1, y: 0, duration: 0.5 });
+              navbarRevealed = true;  // Mark as revealed so it won't hide again
+            }
+          }
         });
 
-        // Timeout to reveal navbar after 4 seconds
+        // Timeout to reveal navbar after 8 seconds
         const timer = setTimeout(() => {
-          gsap.to(".navbar", { opacity: 1, y: 0 });
+          if (!navbarRevealed) {
+            gsap.to('.navbar', { opacity: 1, y: 0, duration: 0.5 });
+            navbarRevealed = true;  // Mark as revealed by timer
+          }
         }, 8000);
 
-        // Cleanup the timer
-        return () => clearTimeout(timer);
+        // Cleanup ScrollTrigger and timer on component unmount
+        return () => {
+          clearTimeout(timer);
+          scrollTriggerInstance.kill();
+        };
 
       } else {
-        gsap.to(".navbar", { opacity: 1, y: 0 });  // Ensure navbar is visible on mobile
+        // Always show navbar on mobile
+        gsap.to('.navbar', { opacity: 1, y: 0 });
       }
     } else {
-      gsap.set(".navbar", { opacity: 1, y: 0 });  // Ensure navbar is visible on other pages
+      // Ensure navbar is visible on all other pages
+      gsap.set('.navbar', { opacity: 1, y: 0 });
     }
   }, [location.pathname]);
-  
 
   return (
     <div>

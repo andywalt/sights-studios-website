@@ -50,4 +50,8 @@ svg {
   .upper-title {
     margin-top: 1em; /* Adjust margin to push the SVG down */
   }
+
+  #h3-6 {
+    font-size: 1rem;
+  }
 }

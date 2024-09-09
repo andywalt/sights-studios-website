@@ -71,7 +71,6 @@ const FeatureSection = () => {
           <span className="rotating-word">{currentWord}</span>
           <div className="underline"></div>
         </div>
-        <span className="period">.</span>
       </h2>
       <div className="features">
         {features.map((feature, index) => (

@@ -25,25 +25,25 @@ const services = [
     title: "Process Mapping",
     description: "Researching, examining, and investigating the current processes and patterns of the team and mapping them out so we can examine where there are inefficiencies and outliers.",
     icon: <ProjectDiagramIcon className="service-icon" />,
-    link: "/process-mapping"
+    link: "/coming-soon" /* "/process-mapping" */
   },
   {
     title: "CRM Maximization",
     description: "Evaluating tools and setting them up so that they are integrated and used to their full capacity.",
     icon: <CogsIcon className="service-icon" />,
-    link: "/crm-implementation"
+    link: "/coming-soon"
   },
   {
     title: "Holistic Integrations",
     description: "Eliminating silos between departments and teams by organizing and integrating proposed plans and efforts.",
     icon: <UserCogIcon className="service-icon" />,
-    link: "/holistic-integrations"
+    link: "/coming-soon"
   },
   {
     title: "Personnel Development",
     description: "Training and coaching for new processes as well as change management and staff evaluations.",
     icon: <UsersIcon className="service-icon" />,
-    link: "/personnel-development"
+    link: "/coming-soon"
   }
 ];
   
@@ -124,7 +124,9 @@ const ServicesPage = () => {
               <div className="service-content">
                 <h2 className="service-title">
                   {service.title}
-                  <a href={service.link}><ArrowRightIcon className="service-link" /></a>
+                    <Link to={service.link}>
+                      <ArrowRightIcon className="service-link" />
+                    </Link>
                 </h2>
                 <p>{service.description}</p>
               </div>
@@ -135,7 +137,7 @@ const ServicesPage = () => {
           <h2>Get in Touch</h2>
           <p>If you are interested in any of our services, please contact us for more information.</p>
           <Link to="/contact">
-              <button className="cta-button">See the Magic</button>
+              <button className="cta-button">Find the Magic</button>
           </Link>
         </div>
       </div>

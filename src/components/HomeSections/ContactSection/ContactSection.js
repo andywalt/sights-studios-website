@@ -203,53 +203,58 @@ const ContactSection = () => {
             {/* Form Container */}
             <div className="contact-form-container">
               <div className="contact-form-input-groups">
-                <div className="contact-form">
+                <div>
                   <h3 className="form-section-title">Fill out your work details.</h3>
-                  <input
-                    type="text"
-                    name="firstName"
-                    placeholder="First Name"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    required
-                  />
-                  <input
-                    type="text"
-                    name="lastName"
-                    placeholder="Last Name"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    required
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                  />
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Phone Number"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                  />
+                  <div className="contact-form">
+                    <input
+                      type="text"
+                      name="firstName"
+                      placeholder="First Name"
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      required
+                    />
+                    <input
+                      type="text"
+                      name="lastName"
+                      placeholder="Last Name"
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      required
+                    />
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                    />
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="Phone Number"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
                 </div>
-                <div className="checkbox-group">
+                <div>
                   <h3 className="form-section-title">How can we help?</h3>
-                  {['Processes', 'Product', 'People', 'Other'].map((area) => (
-                    <label key={area} className='checkbox-area' onClick={(event) => handleStarClick(area, event)}>
-                      <FontAwesomeIcon
-                        icon={faStar}
-                        className={`star-icon ${formData.areasOfInterest[area] ? 'checked' : ''}`}
-                      />
-                      <span>{area}</span>
-                    </label>
-                  ))}
+                  <div className="checkbox-group">
+                    {['Processes', 'Product', 'People', 'Other'].map((area) => (
+                      <label key={area} className='checkbox-area' onClick={(event) => handleStarClick(area, event)}>
+                        <FontAwesomeIcon
+                          icon={faStar}
+                          className={`star-icon ${formData.areasOfInterest[area] ? 'checked' : ''}`}
+                        />
+                        <span>{area}</span>
+                      </label>
+                    ))}
+                  </div>
                 </div>
+                
               </div>
             </div>
             <button type="submit" ref={submitButtonRef} className="cta-button" onClick={handleSubmit}>
