@@ -157,7 +157,7 @@
   }
 
   .scroll-arrow {
-    font-size: 3vh;
+    font-size: 5vh;
     text-align: center;
     position: absolute;
     bottom: 10%;
@@ -167,6 +167,7 @@
     transition: transform 1s ease; /* Smooth transition for the move */
     opacity: 0;
     display: none;
+    color: var(--primary-green);
   }
   
   @keyframes bounce {

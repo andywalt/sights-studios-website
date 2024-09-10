@@ -8,7 +8,7 @@ const AboutMeSection = () => {
     <div className="about-me-section">
       <div className="about-me-content">
         <div className="about-me-image">
-          <img src={`${process.env.PUBLIC_URL}/photos/Andy-headshot-professional-square.jpeg`} alt="Andy Walters Headshot" />
+          <img src={`${process.env.PUBLIC_URL}/photos/Andy-headshot-professional-square.webp`} alt="Andy Walters Headshot" />
         </div>
         <div className="about-me-text">
           <h3>Founder, President, Director, Nerd</h3>

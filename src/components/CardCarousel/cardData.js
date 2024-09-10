@@ -3,14 +3,14 @@ export const cardData = [
         client:'Hitpost',
         title:'PROCESS PEOPLE',
         description:'The Sights Studios team worked closely with Caleb at Hitpost, providing coaching on sales tactics and closing strategies. With our guidance, he was able to 2x his client base by implementing practical solutions that led to immediate results and a significant boost in his business.',
-        image:'/photos/client-photos/hitpost-homepage.png',
+        image:'/photos/client-photos/hitpost-homepage.webp',
         url: 'https://www.hitpost.co/'
     },
   {
     client:'FIRM Israel',
     title:'PROCESS PRODUCT',
     description:'Our team at Sights Studios partnered with Firm to refine their CRM strategy and develop a streamlined workflow. These processes are designed to be automated for long-term efficiency, enabling their donor development team to scale and hire additional staff, ultimately supporting rapid team growth.',
-    image:'/photos/client-photos/firm-homepage.png',
+    image:'/photos/client-photos/firm-homepage.webp',
         url: 'https://www.firm.org.il/'
 },
 
@@ -18,14 +18,14 @@ export const cardData = [
     client:'Big Fan Pros',
     title:'PROCESS PRODUCT',
     description:'Sights Studios was instrumental in establishing Big Fan Pros online presence. We built their website from the ground up and developed comprehensive strategies for increasing sales and marketing. Through our collaborative approach, we helped them strengthen their digital presence and create sustainable growth processes.',
-    image:'/photos/client-photos/bigfanpros.png',
+    image:'/photos/client-photos/bigfanpros.webp',
         url: 'https://www.bigfanpros.com/'
 },
 {
     client:'MAP 1040',
-    title:'PROCESS PRODUCT PEOPLE',
+    title:'PRODUCT PEOPLE',
     description:'The Sights Studios team created a full digital presence for MAP1040, including their website, marketing strategy, communication plan, and engagement framework. Our efforts resulted in expanded reach and new donors, allowing MAP1040 to increase its influence and support.',
-    image:'/photos/client-photos/MAP1040-homepage.png',
+    image:'/photos/client-photos/MAP1040-homepage.webp',
         url: 'https://www.map1040.com/'
 },/* 
 {

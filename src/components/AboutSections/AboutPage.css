@@ -68,6 +68,70 @@ h2 {
   transform: rotate(-15deg);
 }
 
+.magic-definition {
+  max-width: 80%;
+}
+
+/* Base styling for the magic phrase, wrapping both quotation marks and the word */
+.magic-phrase {
+  white-space: nowrap; /* Prevents line breaks for the entire phrase */
+}
+
+
+/* Base styling for magic word */
+.magic-word {
+  color: var(--primary-green);
+  font-weight: bold;
+  font-style: italic;
+  position: relative;
+  display: inline-block;
+  transition: color 0.5s ease, text-shadow 0.5s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+/* Only show sparkle effects when the 'sparkles' class is added */
+.magic-word.sparkles::before,
+.magic-word.sparkles::after {
+  content: '✨';
+  position: absolute;
+  opacity: 0;
+  font-size: 1.5rem;
+  color: var(--primary-green);
+  animation: sparkle 2s infinite alternate ease-in-out;
+}
+
+.magic-word.sparkles::before {
+  left: -1.5rem;
+  top: -0.5rem;
+}
+
+.magic-word.sparkles::after {
+  right: -1.5rem;
+  bottom: -0.5rem;
+}
+
+/* Default state for before and after (hidden until clicked) */
+.magic-word::before,
+.magic-word::after {
+  opacity: 0;
+}
+
+/* Keyframes for sparkle effect */
+@keyframes sparkle {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.25);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
 /* About Hero Section Mobile Styling  */
 
 @media (max-width: 768px) {
@@ -86,7 +150,7 @@ h2 {
   }
 
   .about-hero-content h1 {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 
   .about-hero-image {
@@ -153,18 +217,24 @@ h2 {
   margin-top: 10px;
 }
 
-.cta-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  color: white;
-  background-color: #007BFF;
-  border: none;
-  cursor: pointer;
-}
 
-.cta-button:hover {
-  background-color: #0056b3;
+/* Media queries for smaller screens */
+@media (max-width: 768px) {
+  .values {
+    flex-direction: column;  /* Stack the values vertically on small screens */
+    align-items: center;
+  }
+
+  .value {
+    flex: 1 1 100%;  /* Full width on small screens */
+    max-width: 100%;  /* Ensure each item takes full width */
+    margin: 15px 0;
+    text-align: center;  /* Center text on mobile */
+  }
+
+  .value p {
+    padding: 0 20px;  /* Add padding to make text more readable */
+  }
 }
 
 /* About Me Section */

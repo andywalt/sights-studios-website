@@ -1,9 +1,13 @@
 .carousel-section {
   position: relative;
-  height: 70vh;
   width: 100%;
   margin: auto;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0; /* Add padding to prevent cutoff */
 }
 
 .background-image {
@@ -22,23 +26,22 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Slight dark overlay */
+  background-color: rgba(0, 0, 0, 0.7); /* Slight dark overlay */
   z-index: 1;
 }
 
 /* Active card information */
 .active-card-info {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
+  position: relative;
   background: rgba(0, 0, 0, 0.6);
   color: white;
   padding: 15px;
   border-radius: 8px;
-  max-width: 30%;
+  max-width: 70%;
   z-index: 10;
   text-align: left;
   min-height: 300px; /* Increased height */
+  margin-bottom: 20px; /* Space below the active card */
 }
 
 /* Ensure links keep the same color when clicked or visited */
@@ -55,13 +58,12 @@
 
 /* Styles for small cards */
 .small-cards-container {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
+  position: relative;
   display: flex;
   gap: 10px;
   justify-content: center;
   z-index: 20;
+  margin-top: 20px; /* Space above small cards */
 }
 
 .small-card {
@@ -94,11 +96,11 @@
     bottom: auto;
     left: 50%;
     transform: translateX(-50%);
-    max-width: 70%; /* Skinnier width */
+    max-width: 90%; /* Skinnier width */
     min-height: 400px; /* Taller height */
     text-align: center;
     font-size: 16px;
-    margin-bottom: 20px; /* Add more space below the info */
+    margin-bottom: 20px; /* Space between active card info and small cards */
     margin-top: 40px; /* Space between top and active card info */
   }
 
@@ -114,8 +116,8 @@
   }
 
   .small-card {
-    width: 90px; /* Increased width for better readability */
-    height: 150px; /* Increased height for visibility */
+    width: 100px; /* Increased width for better readability */
+    height: 180px; /* Increased height for visibility */
   }
 
   .carousel-section {
@@ -123,5 +125,22 @@
     flex-direction: column;
     align-items: center;
     padding-bottom: 0;
+  }
+}
+
+/* Media queries for very small screens (Under 400px) */
+@media (max-width: 400px) {
+  .small-cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two columns */
+    grid-gap: 15px; /* Space between the cards */
+    justify-content: center;
+    justify-items: center; /* Center the small cards */
+
+  }
+
+  .small-card {
+    width: 100px; /* Adjust width for small screens */
+    height: 150px; /* Adjust height for small screens */
   }
 }

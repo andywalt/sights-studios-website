@@ -6,24 +6,24 @@ import './featureSection.css';
 const features = [
   {
     title: 'Processes',
-    description: 'We evaluate your current systems, workflows, habits, and methods and then map them before developing efficiencies and new products around them.',
-    backgroundImage: `${process.env.PUBLIC_URL}/photos/processes-diagram-small.jpg`,
+    description: 'Mapping your existing systems, workflows, habits, and methods to develop new efficiencies and innovative products around them.',
+    backgroundImage: `${process.env.PUBLIC_URL}/photos/processes-diagram.webp`,
     link: '/services'  // Add link for Processes
 
 
   },
   {
     title: 'Product',
-    description: 'Evaluating your current user feedback, market research, and more to optimize and maximize revenue.',
-    backgroundImage: `${process.env.PUBLIC_URL}/photos/product-comp.jpg`,
+    description: 'Optimizing revenue by evaluating your current user feedback, market research, and more.',
+    backgroundImage: `${process.env.PUBLIC_URL}/photos/product-comp.webp`,
     link: '/services'  // Add link for Product
 
 
   },
   {
     title: 'People',
-    description: 'Provide coaching, training, development programs and evaluate strengths and team dynamics for maximize efficiency while maintaining relational integrity.',
-    backgroundImage: `${process.env.PUBLIC_URL}/photos/people-tech.jpg`,
+    description: 'Enhancing team dynamics with coaching, training, and development programs that maximize efficiency while preserving relational integrity.',
+    backgroundImage: `${process.env.PUBLIC_URL}/photos/people-tech.webp`,
     link: '/services'  // Add link for People
 
   },

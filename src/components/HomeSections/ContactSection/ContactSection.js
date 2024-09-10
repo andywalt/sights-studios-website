@@ -197,7 +197,7 @@ const ContactSection = () => {
           <>
             <div className='contact-titles'>
               <h2 className="contact-heading">Get in Touch</h2>
-              <p className="contact-subheading">We'd love to hear from you (but don't want to be annoying).</p>
+              <p className="contact-subheading">We'd love to hear from you.</p>
             </div>
 
             {/* Form Container */}

@@ -12,6 +12,7 @@
   animation: gradientShift 15s ease infinite; /* Smooth, infinite animation */
 }
 
+
 /* Define keyframes for the rolling effect */
 @keyframes gradientShift {
   0% {
@@ -47,7 +48,7 @@
 .talk-content p {
   font-size: 1.2rem;
   margin-bottom: 30px;
-  font-family: "Judson";
+  font-family: "Inter";
 }
 
 .talk-form h2 {
@@ -89,7 +90,7 @@
 
 .form-row input::placeholder, .form-row select {
   color: #dddddd;
-  font-family: 'Judson', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
 }
 

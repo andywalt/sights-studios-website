@@ -1,9 +1,9 @@
 import React from 'react';
 import Select from 'react-select';
 
-const CustomDropdown = ({ id, name, options, value, onChange, styles }) => {
+const CustomDropdown = ({ id, name, options, value, onChange, styles, placeholder = "Select an option" }) => {
   const handleSelectChange = (selectedOption) => {
-    console.log(`Dropdown changed: ${name} with value:`, selectedOption.value); // Debugging
+    console.log(`Dropdown changed: ${name} with value:`, selectedOption ? selectedOption.value : "None"); // Debugging
     onChange(selectedOption);
   };
 
@@ -15,6 +15,7 @@ const CustomDropdown = ({ id, name, options, value, onChange, styles }) => {
       value={value}
       onChange={handleSelectChange}
       styles={styles}
+      placeholder={placeholder} // Pass placeholder to Select
     />
   );
 };

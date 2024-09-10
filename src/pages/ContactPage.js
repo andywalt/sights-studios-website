@@ -20,11 +20,12 @@ const customStyles = {
     padding: '0',
     flexGrow: 1, // Allows the control to expand and fill available space
     minWidth: "250px", // Sets a minimum width for the control
+    fontFamily: 'Inter, sans-serif',
   }),
   placeholder: (provided) => ({
     ...provided,
     color: '#FAF9F6',
-    fontFamily: 'Judson, sans-serif',
+    fontFamily: 'Inter, sans-serif',
     fontSize: '1rem',
   }),
   input: (provided) => ({

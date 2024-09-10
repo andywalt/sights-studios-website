@@ -316,12 +316,12 @@ const CircleAnimation = () => {
           opacity: 1, // Reveal the text
           ease: "power2.inOut", // Smooth easing
       })
-      // Hide the hidden-text
+      /* // Hide the hidden-text
       .to("#sights-studios", {
           duration: 1,
           opacity: 0,
           ease: "power2.inOut",
-      })
+      }) */
       // Reveal the scroll arrow
       .to(".scroll-arrow", {
           duration: 1.5,
