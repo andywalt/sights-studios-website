@@ -258,7 +258,7 @@ const ContactSection = () => {
               </div>
             </div>
             <button type="submit" ref={submitButtonRef} className="cta-button" onClick={handleSubmit}>
-              {showCheckmark ? <FontAwesomeIcon icon={faCheck} className="check-icon" /> : 'Submit'}
+              {showCheckmark ? <FontAwesomeIcon icon={faCheck} className="check-icon" /> : 'Launch'}
             </button>
           </>
         ) : null}

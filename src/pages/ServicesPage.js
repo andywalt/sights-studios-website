@@ -10,10 +10,10 @@ import LineAnimation from '../components/ServicesSections/LineAnimation.js';
 import { ReactComponent as ProjectDiagramIcon } from "../components/ServicesSections/ServicesSVGs/project-diagram.svg"; // import the SVG component
 import { ReactComponent as CogsIcon } from "../components/ServicesSections/ServicesSVGs/cogs.svg"; // import the SVG component
 import { ReactComponent as UserCogIcon } from "../components/ServicesSections/ServicesSVGs/user-cog.svg"; // import the SVG component
-import { ReactComponent as UsersIcon } from "../components/ServicesSections/ServicesSVGs/users.svg"; // import the SVG component
+import { ReactComponent as UsersIcon } from "../components/ServicesSections/ServicesSVGs/user-group-solid.svg"; // import the SVG component
 import { ReactComponent as ArrowRightIcon } from "../components/ServicesSections/ServicesSVGs/arrow-right-circle.svg"; // import the SVG component
 
-
+import PartnersBanner from "../components/ServicesSections/ServicesBanner/PartnersBanner.js";
 
 import '../components/ServicesSections/ServicesPage.css';
 
@@ -23,26 +23,30 @@ gsap.registerPlugin(ScrollToPlugin);
 const services = [
   {
     title: "Process Mapping",
-    description: "Researching, examining, and investigating the current processes and patterns of the team and mapping them out so we can examine where there are inefficiencies and outliers.",
+    description: "We deep-dive into your existing workflows and systems, identifying bottlenecks, inefficiencies, and hidden opportunities. By mapping out your processes, we develop streamlined strategies that cut costs, boost productivity, and improve operational clarity.",
     icon: <ProjectDiagramIcon className="service-icon" />,
+    value: "Teams report a 20% increase in workflow efficiency after our process mapping services.",
     link: "/coming-soon" /* "/process-mapping" */
   },
   {
     title: "CRM Maximization",
-    description: "Evaluating tools and setting them up so that they are integrated and used to their full capacity.",
+    description: "We assess, implement, and optimize your CRM to transform how you manage client relationships. Our goal is to leverage the full power of your CRM, ensuring it drives sales, improves customer retention, and provides critical insights for strategic decision-making.",
     icon: <CogsIcon className="service-icon" />,
+    value: "Clients typically experience a 15% increase in customer retention within six months of CRM optimization.",
     link: "/coming-soon"
   },
   {
     title: "Holistic Integrations",
-    description: "Eliminating silos between departments and teams by organizing and integrating proposed plans and efforts.",
+    description: "Our integration experts break down departmental silos, ensuring seamless communication and collaboration across your organization. By aligning tools, teams, and strategies, we drive unified efforts that lead to accelerated growth and increased agility.",
     icon: <UserCogIcon className="service-icon" />,
+    value: "Our integration solutions decrease team misalignment issues by 25%, leading to smoother operations.",
     link: "/coming-soon"
   },
   {
     title: "Personnel Development",
-    description: "Training and coaching for new processes as well as change management and staff evaluations.",
+    description: "We offer tailored training and coaching programs designed to enhance team efficiency and foster leadership growth. Our focus is on strengthening communication, improving workflows, and ensuring a smooth transition during periods of change, so your team is prepared to tackle new challenges and thrive.",
     icon: <UsersIcon className="service-icon" />,
+    value: "Companies see a 30% increase in team productivity after personnel development workshops.",
     link: "/coming-soon"
   }
 ];
@@ -129,10 +133,12 @@ const ServicesPage = () => {
                     </Link>
                 </h2>
                 <p>{service.description}</p>
+                <p className='service-value'>{service.value}</p>
               </div>
             </div>
           ))}
         </div>
+        <PartnersBanner />
         <div className="services-contact-section">
           <h2>Get in Touch</h2>
           <p>If you are interested in any of our services, please contact us for more information.</p>

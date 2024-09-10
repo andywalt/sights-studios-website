@@ -46,6 +46,7 @@
 .services-header {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   padding: 25px 50px 25px 100px;
   background-color: var(--bg);
@@ -54,12 +55,10 @@
 
 .services-header h1 {
   font-size: 3rem;
-  margin: 0;
 }
 
 .services-header p {
   font-size: 1.2rem;
-  margin: 0;
   max-width: 60%;
 }
 
@@ -124,8 +123,6 @@
   fill:#FAF9F6;
 }
 
-
-
 /* Gradient hover effect for service title and icon */
 .service:hover .service-icon-wrapper svg,
 .service:hover .service-link {
@@ -134,10 +131,22 @@
 }
 
 .service:hover h2 {
-  background: linear-gradient(315deg, #378b29 0%, #145214 74%);
+  background: linear-gradient(315deg, #1D1B26 0%, #145214 74%);
   -webkit-background-clip: text;
   -webkit-mask-image: none;
   color: transparent;
+}
+
+.service-value {
+  font-style: italic;
+  font-weight: bold;
+  border-radius: 5px;
+  letter-spacing: .1rem;
+  
+}
+
+.service-value:hover {
+  background: linear-gradient(315deg, #1D1B26 0%, #145214 74%);
 }
 
 /* Contact Section */

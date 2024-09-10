@@ -30,6 +30,7 @@ const Footer = () => {
 
       <div className="footer-bottom">
         <p>© 2024 Sights Studios. All rights reserved.</p>
+        <p>Made with coffee and care.</p>
         <div className="footer-links">
           <a href="/coming-soon">Privacy Policy</a>
           <a href="/coming-soon">Terms of Service</a>

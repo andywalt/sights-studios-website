@@ -25,7 +25,7 @@ const ValuesSection = () => {
   return (
     <div className="values-section">
       <h2>Values that Lead Us Forward</h2>
-      <p>Our finest creations stem from strong values and dedicated effort. Guided by our core principles, we strive to deliver exceptional, enduring results. Intentionality is our cornerstone, ensuring that we not only withstand the test of time but also thrive and grow.</p>
+      <p className='values-explaination'>Our finest creations stem from strong values and dedicated effort. Guided by our core principles, we strive to deliver exceptional, enduring results. Intentionality is our cornerstone, ensuring that we not only withstand the test of time but also thrive and grow.</p>
       <div className="values">
         {values.map((value, index) => (
           <div className="value" key={index}>

@@ -25,12 +25,12 @@ const CardCarousel = () => {
     updateIndexes(state.current, state.next);
   };
 
-  // Autoplay logic that switches cards every 4 seconds
+  // Autoplay logic that switches cards every 6 seconds
   useEffect(() => {
     if (isAutoplayRunning) {
       autoplayTimer.current = setTimeout(() => {
         moveToNextCard();
-      }, 4000);
+      }, 6000);
     }
 
     // Ensure proper cleanup of the timer when component unmounts
@@ -85,7 +85,7 @@ const CardCarousel = () => {
               className={`small-card ${index === state.current ? "active" : ""}`}
               onClick={() => handleSmallCardClick(index)}
             >
-              <img src={card.image} alt={card.title} />
+              <img src={card.image} alt={card.title} loading="lazy" />
             </div>
           ))}
         </div>

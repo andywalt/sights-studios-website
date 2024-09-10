@@ -9,7 +9,7 @@ const ComingSoon = () => {
       <div className="container">
         <div className="logo-container">
           <img 
-            src={`${process.env.PUBLIC_URL}/photos/sightsstudioslogo-5-best.png`}
+            src={"/photos/sightsstudioslogo.webp"}
             alt="Sights Studios Logo" 
             className="logo" 
           />

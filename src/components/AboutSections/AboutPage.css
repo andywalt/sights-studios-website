@@ -23,12 +23,11 @@ h2 {
   text-align: center;
   padding: 100px 50px 50px 50px;
   position: relative;
+  gap: 10vw;
 }
 
 .about-hero-content {
   max-width: 50%;
-  margin-left: 50px;
-  padding-left: 50px;
   z-index: 2;
 }
 
@@ -173,6 +172,9 @@ h2 {
 .values-section {
   padding: 25px 50px 25px 50px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .values-section h2 {
@@ -217,6 +219,10 @@ h2 {
   margin-top: 10px;
 }
 
+.values-explaination {
+  max-width: 40vw;
+}
+
 
 /* Media queries for smaller screens */
 @media (max-width: 768px) {
@@ -234,6 +240,10 @@ h2 {
 
   .value p {
     padding: 0 20px;  /* Add padding to make text more readable */
+  }
+
+  .values-explaination {
+    max-width: 70vw;
   }
 }
 

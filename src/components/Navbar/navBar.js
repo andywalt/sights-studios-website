@@ -71,7 +71,7 @@ const Navbar = forwardRef((props, ref) => {
 
       <nav className={`navbar ${isOpen ? 'navbar-active' : ''}`} ref={ref}>
         <Link to="/">
-          <img src={`${process.env.PUBLIC_URL}/photos/sightsstudioslogo-5-best.png`} alt="sights studios logo" id="ss-logo" />
+          <img src={"/photos/sightsstudioslogo.webp"} alt="sights studios logo" id="ss-logo" type="image/webp" />
         </Link>
         <ul className={`navbar-links ${isOpen ? 'navbar-active' : ''}`}>
           <li><Link to="/">Home</Link></li>

@@ -5,11 +5,11 @@
   color: var(--text-color);
   font-family: 'Inter', sans-serif;
   position: relative;
-  background: linear-gradient(45deg, #145214, #1D1B26, #145214); /* Initial gradient */
+  background: linear-gradient(45deg, #145214, #1D1B26); /* Initial gradient */
   background-size: 400% 400%; /* Large size to allow smooth transitions */
   display: flex;
   flex-direction: column;
-  animation: gradientShift 15s ease infinite; /* Smooth, infinite animation */
+  animation: gradientShift 60s ease infinite; /* Smooth, infinite animation */
 }
 
 

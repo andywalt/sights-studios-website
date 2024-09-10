@@ -16,6 +16,8 @@ html, body {
   background-color: var(--bg);
   color: var(--text-color);
   font-family: "Inter", "Judson", "DM Sans", Arial, sans-serif;
+  font-display: swap;
+
 }
 
 .app-wrapper {

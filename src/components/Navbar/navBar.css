@@ -29,7 +29,8 @@
 }
 
 #ss-logo {
-  width: 80%;
+  width: 200px;
+  height: auto;
 }
 
 /* Navbar links container - desktop */

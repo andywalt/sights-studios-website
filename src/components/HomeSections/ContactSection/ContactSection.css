@@ -1,5 +1,5 @@
 .contact-section {
-  background-color: var(--text-color);
+  background: linear-gradient(to right, #FAF9F6, #a2a2a2); /* Multi-step gradient */
   text-align: center;
   font-family: 'Inter';
   color: var(--bg);
@@ -45,7 +45,7 @@
 .contact-form-input-groups {
   display: flex;
   justify-content: space-between; /* Side by side for form and checkbox group */
-  gap: 30px;
+  gap: 75px;
   width: 100%;
 }
 
@@ -111,7 +111,7 @@
   font-size: 2rem;
   margin-right: 10px;
   cursor: pointer;
-  color: #ccc;
+  color: var(--bg);
   transition: transform 0.2s ease; /* Smooth transition */
   flex-shrink: 0;
 }

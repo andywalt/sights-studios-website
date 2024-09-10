@@ -72,6 +72,7 @@ const FeatureSection = () => {
           <div className="underline"></div>
         </div>
       </h2>
+      <p>We provide cutting-edge AI solutions to streamline business processes, improve efficiencies, and drive profitability.</p>
       <div className="features">
         {features.map((feature, index) => (
           <Link to={feature.link} key={index}>  {/* Wrap the card in a Link */}
