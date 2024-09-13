@@ -8,6 +8,8 @@ import ServicesPage from './pages/ServicesPage';
 import ContactPage from './pages/ContactPage';
 // import FaqPage from './pages/FaqPage';
 import ComingSoon from './pages/ComingSoonPage';
+import ScrollToTop from './components/ScrollToTop'; // Import the ScrollToTop component
+
 
 import Footer from '../src/components/HomeSections/FooterSection/footer';
 import './App.css'; // Import the App.css file
@@ -15,9 +17,11 @@ import './App.css'; // Import the App.css file
 
 
 function App() {
+  
   return (
     <div className="app-wrapper">
       <Router>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutMePage />} />

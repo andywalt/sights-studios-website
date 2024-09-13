@@ -9,6 +9,12 @@ import './LineAnimation.css'
 gsap.registerPlugin(MotionPathPlugin);
 
 const LineAnimation = ({ onComplete }) => {
+  // Handle skipping animation
+  const skipAnimation = () => {
+    gsap.globalTimeline.clear(); // Clear any running animations
+    onComplete(); // Immediately trigger onComplete callback
+  };
+
   useEffect(() => {
     const linesOrder = [
       'line-2', 'path5', 'line-252', 'line-241', 'line-283', 'line-280', 'line-239',
@@ -128,10 +134,14 @@ const LineAnimation = ({ onComplete }) => {
     // Pause the animation at the end for debugging
     tl.addPause('+=2');
 
-  });
+  }, [onComplete]);
 
   return (
     <div className="knot-container">
+       {/* Skip Button */}
+       <button className="skip-button" onClick={skipAnimation}>
+        Skip
+      </button>
       <div className='upper-title'>
         <h3 id="h3-1" style={{ opacity: 1 }}>This is your business...</h3>
         <h3 id="h3-3" style={{ opacity: 0 }}>Here's where we come in...</h3>

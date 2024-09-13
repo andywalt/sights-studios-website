@@ -42,6 +42,26 @@ svg {
   stroke: var(--primary-green);
 }
 
+.skip-button {
+  position: absolute;
+  top: 100px;
+  right: 20px;
+  padding: 10px 20px;
+  color: var(--text-color);
+  background-color: var(--bg);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 10;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.skip-button:hover {
+  background-color: var(--primary-green);
+  
+}
+
 @media (max-width: 768px) {
   .knot-container {
     height: 95vh; /* Adjust height for mobile */

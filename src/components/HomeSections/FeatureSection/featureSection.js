@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';  // Import Link from react-router-dom
 import { gsap } from 'gsap';
 import './featureSection.css';
 
@@ -75,7 +74,7 @@ const FeatureSection = () => {
       <p>We provide cutting-edge AI solutions to streamline business processes, improve efficiencies, and drive profitability.</p>
       <div className="features">
         {features.map((feature, index) => (
-          <Link to={feature.link} key={index}>  {/* Wrap the card in a Link */}
+          <a href={feature.link} key={index}>  {/* Use <a> instead of Link */}
             <div
               className="feature-card"
               style={{ backgroundImage: `url(${feature.backgroundImage})` }}
@@ -85,7 +84,7 @@ const FeatureSection = () => {
                 <p>{feature.description}</p>
               </div>
             </div>
-          </Link>
+          </a>
         ))}
       </div>
     </div>
