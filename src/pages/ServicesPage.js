@@ -12,10 +12,10 @@ import { ReactComponent as CogsIcon } from "../components/ServicesSections/Servi
 import { ReactComponent as UserCogIcon } from "../components/ServicesSections/ServicesSVGs/user-cog.svg";
 import { ReactComponent as UsersIcon } from "../components/ServicesSections/ServicesSVGs/user-group-solid.svg";
 import { ReactComponent as ArrowRightIcon } from "../components/ServicesSections/ServicesSVGs/arrow-right-circle.svg";
-
-import '../components/ServicesSections/ServicesPage.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faWrench } from '@fortawesome/free-solid-svg-icons';
+
+import '../components/ServicesSections/ServicesPage.css';
 
 // Register the ScrollToPlugin
 gsap.registerPlugin(ScrollToPlugin);
