@@ -357,7 +357,7 @@ const CircleAnimation = () => {
         window.removeEventListener('resize', handleResize);
       };
     }
-  }, [animationCompleted]); // Add animationCompleted to the dependency array
+  }, [animationCompleted, updatePositions]);
 
   return (
     <div ref={containerRef} className="animation-container">
