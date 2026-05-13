@@ -6,7 +6,6 @@ import { cardData } from "./cardData";
 const CardCarousel = () => {
   const smallCardElems = useRef([]); // Refs for the small cards
   const [state, setState] = useState({ current: 0, next: 1 });
-  const [userDetected, setUserDetected] = useState(false);
   const [isAutoplayRunning, setIsAutoplayRunning] = useState(true); // Track autoplay state
   
   // Autoplay timer reference
@@ -20,20 +19,14 @@ const CardCarousel = () => {
     });
   };
 
-  // Move to the next card automatically
-  const moveToNextCard = () => {
-    updateIndexes(state.current, state.next);
-  };
-
   // Autoplay logic that switches cards every 6 seconds
   useEffect(() => {
     if (isAutoplayRunning) {
       autoplayTimer.current = setTimeout(() => {
-        moveToNextCard();
+        updateIndexes(state.current, state.next);
       }, 6000);
     }
 
-    // Ensure proper cleanup of the timer when component unmounts
     return () => {
       if (autoplayTimer.current) {
         clearTimeout(autoplayTimer.current);
@@ -45,7 +38,6 @@ const CardCarousel = () => {
   const handleSmallCardClick = (index) => {
     // Stop autoplay when user interacts
     setIsAutoplayRunning(false);
-    setUserDetected(true);
     updateIndexes(state.current, index);
   };
 

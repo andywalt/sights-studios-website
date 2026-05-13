@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import gsap from 'gsap'
 
 import './CircleAnimation.css';
@@ -9,8 +9,6 @@ const CircleAnimation = () => {
   const containerRef = useRef(null);
 
   const isMobile = window.matchMedia("(max-width: 767px)").matches;
-  const isDesktop = window.matchMedia("(min-width:768px)").matches;
-  const isTablet = window.matchMedia("(min-width: 768px) and (max-width: 1024px)").matches;
   
   const [animationCompleted, setAnimationCompleted] = useState(false);
   const [centers, setCenters] = useState({
@@ -43,7 +41,7 @@ const CircleAnimation = () => {
   };
   
   // Update positions of the circles and lines based on the calculated centers
-  const updatePositions = () => {
+  const updatePositions = useCallback(() => {
     if (animationCompleted) return;  // Prevent update if animation is complete
 
     // Calculate the new center for all four circles
@@ -73,7 +71,7 @@ const CircleAnimation = () => {
      });
  
      startAnimation(newCenters);
-   };
+   }, [animationCompleted]);
 
   // Animate the dot and circles based on their calculated centers
   const startAnimation = (newCenters) => {
