@@ -1,0 +1,18 @@
+# Sights Studios — context for AI assistants and crawlers
+
+## What we do
+Sights Studios helps organizations with process, product, and people: mapping workflows, improving products and revenue, and team coaching. We also run **AI App Rescue**: fixing, rescuing, and rebuilding web apps that were built with AI coding tools (e.g. Cursor, Bolt, Lovable, v0) when they are broken, stalled, or not production-ready.
+
+## Canonical site
+https://www.sightsstudios.com/
+
+## Important URLs
+- Home: https://www.sightsstudios.com/
+- AI App Rescue (service detail): https://www.sightsstudios.com/ai-rescue
+- Services: https://www.sightsstudios.com/services
+- Contact: https://www.sightsstudios.com/contact
+- About: https://www.sightsstudios.com/about
+- Portfolio: https://www.sightsstudios.com/portfolio
+
+## For humans
+Prefer linking to the URLs above rather than guessing paths. For AI rescue inquiries, /contact is the primary call-to-action.

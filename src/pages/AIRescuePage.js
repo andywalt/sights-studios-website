@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar/navBar';
 import '../components/AIRescueSections/AIRescueSections.css';
@@ -23,7 +23,25 @@ const STEPS = [
 
 const TOOLS = ['Cursor', 'Bolt', 'Lovable', 'v0', 'Replit', 'ChatGPT'];
 
+const PAGE_TITLE = 'AI App Rescue | Sights Studios';
+const PAGE_DESCRIPTION =
+  'Rescue, fix, and rebuild apps built with Cursor, Bolt, Lovable, v0, and similar AI tools. Honest assessment, focused rebuilds, and a clean handoff.';
+
 const AIRescuePage = () => {
+  useEffect(() => {
+    const prevTitle = document.title;
+    const meta = document.querySelector('meta[name="description"]');
+    const prevDescription = meta?.getAttribute('content') ?? '';
+
+    document.title = PAGE_TITLE;
+    meta?.setAttribute('content', PAGE_DESCRIPTION);
+
+    return () => {
+      document.title = prevTitle;
+      meta?.setAttribute('content', prevDescription);
+    };
+  }, []);
+
   return (
     <div className="ai-rescue-page">
       <Navbar />
@@ -32,13 +50,14 @@ const AIRescuePage = () => {
         <span className="air-badge">AI App Rescue</span>
         <h1 className="air-headline">
           Your AI-Built App<br />
-          <span className="air-headline-accent">Isn't a Lost Cause.</span>
+          <span className="air-headline-accent">Isn&apos;t a Lost Cause.</span>
         </h1>
+        <div className="air-headline-underline" aria-hidden="true" />
         <p className="air-subheading">
-          We specialize in rescuing, fixing, and rebuilding apps that were built with AI tools and didn't land where you needed them to.
+          We specialize in rescuing, fixing, and rebuilding apps that were built with AI tools and didn&apos;t land where you needed them to.
         </p>
-        <Link to="/contact">
-          <button className="cta-button">Schedule a Call →</button>
+        <Link to="/contact" className="air-cta-link">
+          <button type="button" className="cta-button">Schedule a Call →</button>
         </Link>
       </div>
 
@@ -71,8 +90,8 @@ const AIRescuePage = () => {
       <div className="air-cta-section">
         <h2>Ready to Fix It?</h2>
         <p>Tell us what you built and where you're stuck. We'll take a look.</p>
-        <Link to="/contact">
-          <button className="cta-button">Schedule a Call →</button>
+        <Link to="/contact" className="air-cta-link">
+          <button type="button" className="cta-button">Schedule a Call →</button>
         </Link>
       </div>
     </div>

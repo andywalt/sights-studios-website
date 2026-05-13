@@ -1,3 +1,8 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
+
+# LLM / site context (optional for crawlers that look for it)
+# https://www.sightsstudios.com/llm.txt
+
+Sitemap: https://www.sightsstudios.com/sitemap.xml
