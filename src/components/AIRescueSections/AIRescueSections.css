@@ -1,0 +1,143 @@
+.ai-rescue-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text-color);
+}
+
+.air-hero {
+  padding: 100px 40px 80px;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.air-badge {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #a78bfa;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.air-headline {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--text-color);
+  line-height: 1.15;
+  margin: 0 0 20px;
+}
+
+.air-headline-accent {
+  color: #a78bfa;
+}
+
+.air-subheading {
+  font-size: 1.1rem;
+  color: #aaa;
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.air-who-section,
+.air-process-section,
+.air-cta-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.air-who-section h2,
+.air-process-section h2,
+.air-cta-section h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-color);
+  margin: 0 0 16px;
+}
+
+.air-who-section p,
+.air-cta-section p {
+  font-size: 1rem;
+  color: #aaa;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.air-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.air-tool-tag {
+  background: #1a0f2e;
+  border: 1px solid #7c3aed;
+  color: #c4b5fd;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 8px;
+}
+
+.air-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.air-step {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.air-step-number {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #3b1f6a;
+  line-height: 1;
+  flex-shrink: 0;
+  width: 60px;
+}
+
+.air-step-content h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0 0 8px;
+}
+
+.air-step-content p {
+  font-size: 1rem;
+  color: #aaa;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.air-cta-section {
+  text-align: center;
+  border-top: 1px solid #2a2a2a;
+}
+
+@media (max-width: 768px) {
+  .air-hero {
+    padding: 80px 20px 60px;
+  }
+
+  .air-headline {
+    font-size: 2rem;
+  }
+
+  .air-who-section,
+  .air-process-section,
+  .air-cta-section {
+    padding: 40px 20px;
+  }
+}
