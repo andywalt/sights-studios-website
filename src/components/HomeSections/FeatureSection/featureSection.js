@@ -65,7 +65,7 @@ const FeatureSection = () => {
   return (
     <div className="feature-section">
       <h2 className="rotating-word-section">
-        How We<span className="break-mobile"><br /></span> Help You <span className="break-mobile"><br /></span>
+        We<span className="break-mobile"><br /></span> Help You <span className="break-mobile"><br /></span>
         <div className="rotating-word-container">
           <span className="rotating-word">{currentWord}</span>
           <div className="underline"></div>
