@@ -14,11 +14,20 @@ import { ReactComponent as UsersIcon } from "../components/ServicesSections/Serv
 import { ReactComponent as ArrowRightIcon } from "../components/ServicesSections/ServicesSVGs/arrow-right-circle.svg";
 
 import '../components/ServicesSections/ServicesPage.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWrench } from '@fortawesome/free-solid-svg-icons';
 
 // Register the ScrollToPlugin
 gsap.registerPlugin(ScrollToPlugin);
 
 const services = [
+  {
+    title: "AI App Rescue",
+    description: "Built something with Cursor, Bolt, Lovable, or v0 — and it's broken, stuck, or just not what you needed? We assess, rescue, and rebuild AI-generated apps so you stop losing time and money.",
+    icon: <FontAwesomeIcon icon={faWrench} className="service-icon" />,
+    value: "Most rescue engagements deliver a working, maintainable app within 2–4 weeks.",
+    link: "/ai-rescue"
+  },
   {
     title: "Process Mapping",
     description: "We deep-dive into your existing workflows and systems, identifying bottlenecks, inefficiencies, and hidden opportunities. By mapping out your processes, we develop streamlined strategies that cut costs, boost productivity, and improve operational clarity.",
