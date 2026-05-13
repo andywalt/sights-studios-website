@@ -1,9 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
+import AIRescuePage from './AIRescuePage';
 
 jest.mock('../components/Navbar/navBar', () => () => <nav data-testid="navbar" />);
-
-import AIRescuePage from './AIRescuePage';
 
 const renderPage = () =>
   render(<BrowserRouter><AIRescuePage /></BrowserRouter>);
