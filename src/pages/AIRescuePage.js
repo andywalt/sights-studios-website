@@ -57,7 +57,7 @@ const AIRescuePage = () => {
           We specialize in rescuing, fixing, and rebuilding apps that were built with AI tools and didn&apos;t land where you needed them to.
         </p>
         <Link to="/contact" className="air-cta-link">
-          <button type="button" className="cta-button">Schedule a Call →</button>
+          <button type="button" className="cta-button">Schedule a Call</button>
         </Link>
       </div>
 
@@ -91,7 +91,7 @@ const AIRescuePage = () => {
         <h2>Ready to Fix It?</h2>
         <p>Tell us what you built and where you're stuck. We'll take a look.</p>
         <Link to="/contact" className="air-cta-link">
-          <button type="button" className="cta-button">Schedule a Call →</button>
+          <button type="button" className="cta-button">Schedule a Call</button>
         </Link>
       </div>
     </div>

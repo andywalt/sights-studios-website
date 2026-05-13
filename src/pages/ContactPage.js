@@ -8,23 +8,24 @@ import { gsap } from 'gsap';
 
 /* Custom styles for React Select */
 const customStyles = {
-  // Styles for the main control (input field and dropdown container)
   control: (provided, state) => ({
-    ...provided, // Merges the default styles with custom ones
+    ...provided,
     backgroundColor: 'transparent',
-    border: state.isFocused ? 'none' : 'none',
-    borderBottom: state.isFocused ? '1px solid #FAF9F6' : '1px solid #145214',
+    border: 'none',
+    borderBottom: state.isFocused
+      ? '1px solid #D49D42'
+      : '1px solid rgba(250, 249, 246, 0.18)',
     borderRadius: '0',
     boxShadow: 'none',
     minHeight: 'auto',
     padding: '0',
-    flexGrow: 1, // Allows the control to expand and fill available space
-    minWidth: "250px", // Sets a minimum width for the control
+    flexGrow: 1,
+    minWidth: '250px',
     fontFamily: 'Inter, sans-serif',
   }),
   placeholder: (provided) => ({
     ...provided,
-    color: '#FAF9F6',
+    color: 'rgba(250, 249, 246, 0.55)',
     fontFamily: 'Inter, sans-serif',
     fontSize: '1rem',
   }),
@@ -41,31 +42,34 @@ const customStyles = {
   }),
   dropdownIndicator: (provided, state) => ({
     ...provided,
-    color: state.isFocused ? '#145214' : '#FAF9F6',
+    color: state.isFocused ? '#D49D42' : 'rgba(250, 249, 246, 0.7)',
   }),
   indicatorSeparator: () => ({
     display: 'none',
   }),
   menu: (provided) => ({
     ...provided,
-    backgroundColor: '#145214',
-    borderRadius: '0',
-    border: '1px solid #fff',
-    marginTop: '0',
-    zIndex: "10",
-    width: '100%', // Ensures the menu matches the width of the control
-    minWidth: '150px', // Matches the minimum width of the control
+    backgroundColor: 'var(--select-surface)',
+    borderRadius: '8px',
+    border: '1px solid rgba(250, 249, 246, 0.12)',
+    marginTop: '4px',
+    zIndex: '10',
+    width: '100%',
+    minWidth: '150px',
+    boxShadow: '0 16px 40px rgba(0, 0, 0, 0.45)',
   }),
   option: (provided, state) => ({
     ...provided,
-    backgroundColor: state.isSelected ? '#1D1B26' : 'transparent',
-    color: state.isSelected ? '#145214' : '#FAF9F6',
+    backgroundColor: state.isSelected
+      ? 'rgba(20, 82, 20, 0.45)'
+      : state.isFocused
+        ? 'rgba(250, 249, 246, 0.06)'
+        : 'transparent',
+    color: state.isSelected ? '#FAF9F6' : 'rgba(250, 249, 246, 0.92)',
     fontSize: '1rem',
+    cursor: 'pointer',
     ':active': {
-      backgroundColor: '#145214',
-    },
-    ':hover': {
-      backgroundColor: '#1D1B26',
+      backgroundColor: 'rgba(20, 82, 20, 0.35)',
     },
   }),
 };

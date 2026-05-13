@@ -3,6 +3,12 @@
   flex-direction: column;
   min-height: 100vh;
   background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse 85% 55% at 88% 6%, var(--glow-green), transparent 58%),
+    radial-gradient(ellipse 72% 48% at 12% 88%, var(--glow-amber), transparent 52%),
+    radial-gradient(ellipse 55% 42% at 48% 45%, var(--glow-green-soft), transparent 65%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: var(--text-color);
   font-family: 'Inter', 'Judson', sans-serif;
 }
@@ -16,21 +22,8 @@
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
-  background-color: #2d3436;
-  background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
-  border-bottom: 1px solid rgba(250, 249, 246, 0.08);
-}
-
-.air-hero::before {
-  content: '';
-  position: absolute;
-  top: -100px;
-  right: -60px;
-  width: 320px;
-  height: 320px;
-  background: radial-gradient(circle, rgba(20, 82, 20, 0.2), transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
+  background: transparent;
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .air-hero > * {
@@ -166,8 +159,8 @@
   width: 100%;
   box-sizing: border-box;
   text-align: center;
-  border-top: 1px solid rgba(250, 249, 246, 0.08);
-  background: linear-gradient(180deg, rgba(20, 82, 20, 0.06), transparent 40%);
+  border-top: 1px solid var(--border-subtle);
+  background: transparent;
 }
 
 .air-cta-section h2 {

@@ -24,7 +24,7 @@ const AIRescueSection = () => {
         </div>
         <div className="ai-rescue-ctas">
           <Link to="/contact" className="ai-rescue-cta-link">
-            <button type="button" className="cta-button">Schedule a Call →</button>
+            <button type="button" className="cta-button">Schedule a Call</button>
           </Link>
           <Link to="/ai-rescue" className="ai-rescue-cta-link">
             <button type="button" className="cta-button-secondary">Learn More</button>

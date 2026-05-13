@@ -3,7 +3,13 @@
   --secondary-amber: #D49D42;
   --bg: #1D1B26;
   --text-color: #FAF9F6;
-  /* Add more variables as needed */
+  --surface-card: rgba(22, 20, 30, 0.92);
+  --border-subtle: rgba(250, 249, 246, 0.12);
+  --glow-green: rgba(20, 82, 20, 0.38);
+  --glow-green-soft: rgba(20, 82, 20, 0.12);
+  --glow-amber: rgba(212, 157, 66, 0.14);
+  --footer-strip: rgba(0, 0, 0, 0.25);
+  --select-surface: #23202e;
 }
 
 body {

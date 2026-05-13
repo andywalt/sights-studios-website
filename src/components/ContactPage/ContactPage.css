@@ -1,43 +1,34 @@
-/* TalkPage.css */
+/* Contact page — calm studio: dark base, soft corner glows */
 
 .talk-page {
-  background-color: var(--bg);
-  color: var(--text-color);
-  font-family: 'Inter', sans-serif;
-  position: relative;
-  background: linear-gradient(45deg, #145214, #1D1B26); /* Initial gradient */
-  background-size: 400% 400%; /* Large size to allow smooth transitions */
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  animation: gradientShift 60s ease infinite; /* Smooth, infinite animation */
-}
-
-
-/* Define keyframes for the rolling effect */
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%; /* Start from left */
-  }
-  50% {
-    background-position: 100% 50%; /* Shift to right */
-  }
-  100% {
-    background-position: 0% 50%; /* Shift back to the starting point */
-  }
+  font-family: 'Inter', sans-serif;
+  color: var(--text-color);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse 85% 55% at 90% 5%, var(--glow-green), transparent 58%),
+    radial-gradient(ellipse 70% 50% at 8% 92%, var(--glow-amber), transparent 52%),
+    radial-gradient(ellipse 55% 45% at 45% 55%, var(--glow-green-soft), transparent 65%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
 }
 
 .talk-content {
   max-width: 800px;
   margin: 0 auto;
-  padding: 150px 0px 150px 0px;
-  flex-grow: 1; /* Ensure content pushes the footer down */
-  
+  padding: 150px 1.25rem 150px;
+  flex-grow: 1;
 }
 
 .talk-box {
-  background-color: rgba(17, 17, 17, 0.8); 
-  padding: 20px;
-  border-radius: 8px;
+  background-color: var(--surface-card);
+  padding: 2rem 1.75rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
 }
 
 .talk-content h1 {
@@ -48,7 +39,8 @@
 .talk-content p {
   font-size: 1.2rem;
   margin-bottom: 30px;
-  font-family: "Inter";
+  font-family: 'Inter', sans-serif;
+  color: rgba(250, 249, 246, 0.88);
 }
 
 .talk-form h2 {
@@ -83,15 +75,20 @@
   border: none;
   border-radius: 0;
   background-color: transparent;
-  color: #fff;
-  border-bottom: 1px solid #fff;
+  color: var(--text-color);
+  border-bottom: 1px solid var(--border-subtle);
 }
 
-
-.form-row input::placeholder, .form-row select {
-  color: #dddddd;
+.form-row input::placeholder,
+.form-row select {
+  color: rgba(250, 249, 246, 0.55);
   font-family: 'Inter', sans-serif;
   font-size: 0.9rem;
+}
+
+.form-row input:focus {
+  outline: none;
+  border-bottom-color: var(--secondary-amber);
 }
 
 .bottom-line {
@@ -99,7 +96,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid var(--border-subtle);
 }
 
 .spacer {
@@ -108,88 +105,97 @@
 
 #talk-cta-button {
   display: block;
-  width: 40%; /* Adjust the width as needed */
-  margin: 20px auto; /* This centers the button horizontally */
-  text-align: center; /* Center the text inside the button */
+  width: 40%;
+  margin: 20px auto;
+  text-align: center;
 }
 
 .error-message {
-  color: #b5191c; /* Red color for errors */
+  color: #e85d5d;
   margin-bottom: 15px;
   font-size: 1.1rem;
   text-align: center;
 }
 
 .success-animation {
-  background: linear-gradient(45deg, #145214, #1D1B26);
+  background: linear-gradient(
+    135deg,
+    rgba(20, 82, 20, 0.95) 0%,
+    rgba(29, 27, 38, 0.98) 100%
+  );
   color: var(--text-color);
-  transition: background-color 0.5s, transform 0.5s;
+  border: 1px solid rgba(212, 157, 66, 0.35);
+  transition: background-color 0.5s, transform 0.5s, border-color 0.5s;
 }
 
 .success-animation.grow {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .success-message {
   opacity: 0;
   transition: opacity 0.5s ease;
-  margin-top: 20px; /* Adds some space above the success message */
+  margin-top: 20px;
   font-size: 1.2rem;
-  letter-spacing: 0.5px; /* Adjusts the letter spacing */
-  line-height: 1.6; /* Increases line height for better readability */
+  letter-spacing: 0.5px;
+  line-height: 1.6;
 }
 
 .underline {
   text-decoration: underline;
-  position: static; /* Ensure it’s not absolutely positioned */
-  line-height: normal; /* Adjust line-height if needed */
-  margin: 0; /* Reset margins */
-  padding: 0; /* Reset padding */
-  border-radius: 5px; /* Adjust the value for the roundness */
-  background: linear-gradient(45deg, #145214, #1D1B26);
-
+  text-decoration-color: rgba(212, 157, 66, 0.65);
+  text-underline-offset: 3px;
+  position: static;
+  line-height: normal;
+  margin: 0;
+  padding: 0 2px;
+  border-radius: 4px;
+  background: rgba(20, 82, 20, 0.2);
 }
-
 
 .success-message p {
   color: var(--text-color);
-  
 }
 
 .success-message.show {
   opacity: 1;
 }
 
-
 @media (max-width: 768px) {
   .talk-content {
     display: flex;
     justify-content: center;
   }
+
   .talk-box {
-    width: 80%;
+    width: 100%;
+    max-width: 100%;
     height: auto;
+    padding: 1.5rem 1.25rem;
   }
+
   .form-row {
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    margin-bottom: 15px; /* Add some space between rows */
-    
+    margin-bottom: 15px;
   }
 
-  #name-line, #role-line, #company-line, #email-line {
+  #name-line,
+  #role-line,
+  #company-line,
+  #email-line {
     flex-direction: row;
-    width: 100%; /* Make sure the lines take full width */
+    width: 100%;
   }
 
   .form-row input,
   .form-row select {
-    width: 100%; /* Adjust to full width for input and select elements */
+    width: 100%;
   }
 
   .form-row span {
-    flex: 0 0 auto; /* Keep the span elements aligned naturally with the text */
+    flex: 0 0 auto;
     padding-top: 5px;
     margin-right: 5px;
   }
@@ -197,10 +203,8 @@
   .form-row label {
     flex: 1 1 auto;
     margin-right: 5px;
-    margin: 0px;
+    margin: 0;
   }
-
-
 
   #talk-cta-button {
     display: block;
