@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './footer.css';
 
 const Footer = () => {
@@ -22,9 +23,9 @@ const Footer = () => {
         </div>
 
         <div className="footer-section contact">
-          <h4>Contact Us</h4>
-          <p>Email: <a href="mailto:andy@sightsstudios.com">info@sightsstudios.com</a></p>
-          <p>Address: 395 Comfort Maple Lane, Dripping Springs, USA</p>
+          <h4>
+            <Link to="/contact">Contact Us</Link>
+          </h4>
         </div>
       </div>
 

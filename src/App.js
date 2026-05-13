@@ -35,8 +35,8 @@ function App() {
           <Route path="/ai-rescue" element={<AIRescuePage />} />
           <Route path="/coming-soon" element={<ComingSoon />} />
         </Routes>
+        <Footer />
       </Router>
-      <Footer />
     </div>
   );
 }

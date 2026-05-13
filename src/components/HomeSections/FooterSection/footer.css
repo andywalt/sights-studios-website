@@ -58,14 +58,18 @@
   color: var(--text-color);
 }
 
-/* Contact section */
-.contact a {
-  color: var(--primary-green);
+/* Contact Us link */
+.contact h4 {
+  margin-bottom: 0;
+}
+
+.contact h4 a {
+  color: var(--text-color);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
-.contact a:hover {
+.contact h4 a:hover {
   color: var(--primary-green);
 }
 
