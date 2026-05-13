@@ -9,7 +9,7 @@ const AIRescueSection = () => {
     <div className="ai-rescue-section">
       <div className="ai-rescue-inner">
         <div className="ai-rescue-header">
-          <div className="ai-rescue-icon">⚡</div>
+          <div className="ai-rescue-icon" aria-hidden="true">⚡</div>
           <div>
             <span className="ai-rescue-badge">New Service</span>
             <h2 className="ai-rescue-headline">
