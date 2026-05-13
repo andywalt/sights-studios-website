@@ -8,6 +8,7 @@ import ServicesPage from './pages/ServicesPage';
 import ContactPage from './pages/ContactPage';
 // import FaqPage from './pages/FaqPage';
 import ComingSoon from './pages/ComingSoonPage';
+import AIRescuePage from './pages/AIRescuePage';
 import ScrollToTop from './components/ScrollToTop'; // Import the ScrollToTop component
 
 
@@ -31,6 +32,7 @@ function App() {
           {/* <Route path="/blog" element={<BlogPage />} /> */}
           <Route path="/contact" element={<ContactPage />} />
           {/* <Route path="/faq" element={<FaqPage />} /> */}
+          <Route path="/ai-rescue" element={<AIRescuePage />} />
           <Route path="/coming-soon" element={<ComingSoon />} />
         </Routes>
       </Router>
